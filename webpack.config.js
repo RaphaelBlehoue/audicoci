@@ -6,22 +6,13 @@ Encore
     .setPublicPath('/build/front')
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
-    .addEntry('js/main', './assets/front/js/theme/custom.js')
+
     // css entry
-    .addStyleEntry('css/impact', [
+    .addStyleEntry('css/main', [
         './assets/front/css/theme/business.css',
         './assets/front/css/theme/css/fonts.css',
         './assets/front/css/theme/css/colors.css',
         './assets/front/css/theme/onepage/css/et-line.css'
-    ])
-    .addStyleEntry('css/app', [
-        './assets/front/style.less',
-        './assets/front/less/dark.less',
-        './assets/front/less/responsive.less',
-        './assets/front/css/swiper.css',
-        './assets/front/css/animate.css',
-        './assets/front/css/magnific-popup.css',
-        './assets/front/css/font-icons.css'
     ])
     //.enableSassLoader()
     .enableLessLoader()

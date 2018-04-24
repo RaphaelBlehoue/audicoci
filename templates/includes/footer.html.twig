@@ -1,41 +1,88 @@
-<footer id="footer" class="dark">
-    <!-- Copyrights
-    ============================================= -->
-    <div id="copyrights">
-        <div class="container clearfix">
-            <div class="col_half">
-                <img src="images/footer-logo.png" alt="" class="footer-logo">
-                Copyrights &copy; {{ 'now'|date('Y') }} Tous Droits Reserved.
-            </div>
-            <div class="col_half col_last tright">
-                <div class="copyrights-menu copyright-links fright clearfix">
-                    <a href="#">{{ 'A propos' }}</a>/
-                    <a href="#">{{ 'Nos services' }}</a>/
-                    <a href="#">{{ 'Formations' }}</a>/
-                    <a href="#">{{ 'Carrières' }}</a>/
-                    <a href="#">{{ 'Contacts' }}</a>/
+<footer id="footer" class="footer bg-black-111">
+    <div class="container pt-70 pb-40">
+        <div class="row border-bottom-black">
+            <div class="col-sm-8 col-md-4">
+                <div class="widget dark">
+                    <img class="mt-10 mb-20" alt="" src="images/logo-wide-white.png">
+                    <p>Lorem ipsum dolor adipisicing amet, consectetur sit elit. Aspernatur incidihil quo officia.</p>
+                    <ul class="list-inline mt-5">
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-map-marker text-theme-colored mr-5"></i> <a class="text-gray" href="#">{{ '{{ Adresse Location here}}' }}</a> </li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored mr-5"></i> <a class="text-gray" href="#">{{ '{{ 123-456-789 }}' }}</a> </li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored mr-5"></i> <a class="text-gray" href="#">{{ '{{ contact@yourdomain.com }}' }}</a> </li>
+                        <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored mr-5"></i> <a class="text-gray" href="#">{{ '{{ www.yourdomain.com }}' }}</a> </li>
+                    </ul>
                 </div>
-                <div class="fright clearfix">
-                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-                        <i class="icon-gplus"></i>
-                        <i class="icon-gplus"></i>
-                    </a>
-                    <a href="#" class="social-icon si-small si-borderless nobottommargin si-linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a>
+            </div>
+            <div class="col-sm-8 col-md-4">
+                <div class="widget dark">
+                    <h5 class="widget-title line-bottom">{{ '{{ Content 1 }}' }}</h5>
+                    <div class="opening-hours">
+                        <ul class="list-border">
+                            <li class="clearfix"> <span> Mon - Tues :  </span>
+                                <div class="value pull-right flip"> 6.00 am - 10.00 pm </div>
+                            </li>
+                            <li class="clearfix text-white"> <span> Wednes - Thurs :</span>
+                                <div class="value pull-right flip"> 8.00 am - 6.00 pm </div>
+                            </li>
+                            <li class="clearfix"> <span> Fri : </span>
+                                <div class="value pull-right flip"> 3.00 pm - 8.00 pm </div>
+                            </li>
+                            <li class="clearfix"> <span> Sun : </span>
+                                <div class="value pull-right flip"> Closed </div>
+                            </li>
+                            <li class="clearfix"> <span> Sat : </span>
+                                <div class="value pull-right flip"> 10.00 am - 2.00 pm </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-4">
+                <div class="widget dark">
+                    <h5 class="widget-title line-bottom">{{ '{{ Site Map 1 }}' }}</h5>
+                    <div class="opening-hours">
+                        <ul class="list-border">
+                            <li class="clearfix"> <span> Mon - Tues :  </span>
+                                <div class="value pull-right flip"> 6.00 am - 10.00 pm </div>
+                            </li>
+                            <li class="clearfix text-white"> <span> Wednes - Thurs :</span>
+                                <div class="value pull-right flip"> 8.00 am - 6.00 pm </div>
+                            </li>
+                            <li class="clearfix"> <span> Fri : </span>
+                                <div class="value pull-right flip"> 3.00 pm - 8.00 pm </div>
+                            </li>
+                            <li class="clearfix"> <span> Sun : </span>
+                                <div class="value pull-right flip"> Closed </div>
+                            </li>
+                            <li class="clearfix"> <span> Sat : </span>
+                                <div class="value pull-right flip"> 10.00 am - 2.00 pm </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-
-    </div><!-- #copyrights end -->
-
-</footer><!-- #footer end -->
+    </div>
+    <div class="footer-bottom bg-black-222">
+        <div class="container pt-10 pb-0">
+            <div class="row">
+                <div class="col-md-6 sm-text-center">
+                    <p class="font-13 text-black-777 m-0">Copyright {{ 'now'|date('Y') }} All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-right flip sm-text-center">
+                    <div class="widget no-border m-0">
+                        <ul class="styled-icons icon-dark icon-circled icon-sm">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
