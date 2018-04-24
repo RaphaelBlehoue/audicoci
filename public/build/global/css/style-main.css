@@ -1018,7 +1018,7 @@ section > .container-fluid {
   padding-bottom: 10px;
 }
 .menuzord-brand img {
-  max-height: 38px;
+  max-height: 90px;
 }
 @media only screen and (max-width: 767px) {
   .menuzord-brand img {

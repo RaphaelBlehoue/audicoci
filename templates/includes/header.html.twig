@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="widget text-white">
-                        <i class="fa fa-clock-o text-theme-colored"></i> {{ 'content Lorem pixeum' }}:  Mon - Tues : 6.00 am - 10.00 pm, Sunday Closed
+                        <i class="fa fa-clock-o text-theme-colored"></i> {{ 'content Lorem pixeum' }}:  Lun - Ven : 8H00 - 18H00
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -28,7 +28,7 @@
         <div class="container pt-20 pb-20">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="index-mp-layout1.html"><img src="images/logo-wide.png" alt=""></a>
+                    <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="{{ path('index_page') }}"><img src="{{ asset('build/global/images/logo-audicoci.png') }}" alt="{{'audicoci'}}"></a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-9">
                     <div class="header-widget-contact-info-box sm-text-center">
@@ -39,8 +39,8 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <a href="#" class="title">{{ 'Adresse Email' }}</a>
-                                <h5 class="media-heading subtitle">{{ '{{ info@yourdomain.com }}' }}</h5>
+                                <a href="mailto:info@audicoci.com?Subject=Bonjour%20Besoin%20d%20information" class="title">{{ 'Adresse Email' }}</a>
+                                <h5 class="media-heading subtitle">{{ 'info@audicoci.com ' }}</h5>
                             </div>
                         </div>
                         <div class="media element contact-info">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="media-body">
                                 <a href="#" class="title">{{ 'Appelez-nous pour plus de détail' }}</a>
-                                <h5 class="media-heading subtitle">+(012) 345 6789</h5>
+                                <h5 class="media-heading subtitle">{{ '+225 22 43 57 38' }}</h5>
                             </div>
                         </div>
                         <div class="media element contact-info">
@@ -61,8 +61,8 @@
                                 </a>
                             </div>
                             <div class="media-body">
-                                <a href="#" class="title">{{ 'Localisation géographique ' }}</a>
-                                <h5 class="media-heading subtitle">{{ '{{  here adresse localtion}}' }}</h5>
+                                <a href="#" class="title">{{ 'Localisation géographique'|capitalize }}</a>
+                                <h5 class="media-heading subtitle">{{ 'ABIDJAN COCODY RIVIERA II, Rue WOODOO, lot 139 Ilot 10, Bonoumin 2 Plateaux 08 BP 3781 ABIDJAN 08'|capitalize }}</h5>
                             </div>
                         </div>
                     </div>
@@ -76,16 +76,14 @@
                 <nav id="menuzord" class="menuzord blue">
                     <ul class="menuzord-menu">
                         <li class="home active"><a href="#"><i class="fa fa-home font-28"></i></a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="#home">{{ 'qui sommes nous'|capitalize }}</a></li>
+                        <li><a href="#home">{{ 'notre philosophie'|capitalize }}</a></li>
+                        <li><a href="#home">{{ 'nos services'|capitalize }}</a></li>
+                        <li><a href="#home">{{ 'nos formations'|capitalize }}</a></li>
+                        <li><a href="#home">{{ 'actualités'|capitalize }}</a></li>
                     </ul>
                     <div class="pull-right sm-pull-none mb-sm-15">
-                        <a class="btn btn-colored btn-flat btn-theme-colored mt-15 mr-15 ml-15" href="#">{{ 'Nous contacter' }}</a>
+                        <a class="btn btn-colored btn-flat btn-theme-colored mt-15 mr-15 ml-15" href="#"> <i class="ion-android-call"></i> {{ 'Nous contacter' }}</a>
                     </div>
                 </nav>
             </div>

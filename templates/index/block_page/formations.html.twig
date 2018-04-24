@@ -1,0 +1,38 @@
+<!-- Section: Pricing -->
+<section id="pricing">
+    <div class="container pb-50">
+        <div class="section-title text-center mb-60">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class=" mt-0">{{ 'Nos formations'|upper }}</h2>
+                    <div class="title-icon">
+                        <img class="mb-10" src="images/title-icon.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-content mt-20">
+            <div class="row">
+                {% for i in 1..6 %}
+                <div class="col-xs-12 col-sm-6 col-md-4 hvr-float-shadow mb-sm-30 wow fadeInUp animation-delay1">
+                    <div class="pricing-table border-3px border-theme-colored bg-white text-center">
+                        <div class="p-40 bg-white">
+                            <div class="pricing-icon bg-theme-colored">
+                                <i class="flaticon-medical-human3 text-white"></i>
+                            </div>
+                            <h3 class="package-type font-24 text-uppercase">{{ 'formation 1' }}</h3>
+                            <h1 class="price text-theme-colored mb-10 font-36">{{ 'Prices' }}</h1>
+                            <h4 class="discount">FCFA</h4>
+                            <p>Lorem ipsum dolor sit amet conse ctetur adipi sicing elit. Rem autem voluptatem obcaecati! </p>
+                            <a class="btn btn-colored btn-theme-colored text-uppercase mt-30" href="#">{{ 'En savoir +' }}</a><br>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="text-center">
+                    <a href="#" class="btn btn-border btn-theme-colored btn-lg">{{ 'découvir toutes nos formations'|upper }} <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
