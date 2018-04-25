@@ -59,7 +59,6 @@ class SecurityController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $users->setRoles(['ROLE_ADMIN']);
             $entityManager->persist($users);
             $entityManager->flush();
             $this->authenticateUser($users);
