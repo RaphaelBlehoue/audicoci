@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Section{% endblock %}
+
+{% block body %}
+    <h1>Section</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ section.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ section.title }}</td>
+            </tr>
+            <tr>
+                <th>ImageSize</th>
+                <td>{{ section.imageSize }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ section.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ section.content }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ section.slug }}</td>
+            </tr>
+            <tr>
+                <th>Small_content</th>
+                <td>{{ section.small_content }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ section.created ? section.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('section_index') }}">back to list</a>
+
+    <a href="{{ path('section_edit', {'id': section.id}) }}">edit</a>
+
+    {{ include('section/_delete_form.html.twig') }}
+{% endblock %}

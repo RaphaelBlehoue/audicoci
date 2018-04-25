@@ -162,7 +162,7 @@ var THEMEMASCOT = {};
             THEMEMASCOT.initialize.TM_datePicker();
             THEMEMASCOT.initialize.TM_ddslick();
             THEMEMASCOT.initialize.TM_sliderRange();
-            THEMEMASCOT.initialize.TM_loadBSParentModal();
+            //THEMEMASCOT.initialize.TM_loadBSParentModal();
             THEMEMASCOT.initialize.TM_demoSwitcher();
             THEMEMASCOT.initialize.TM_platformDetect();
             THEMEMASCOT.initialize.TM_onLoadPopupPromoBox();
@@ -299,7 +299,7 @@ var THEMEMASCOT = {};
         /* ---------------------------------------------------------------------- */
         /* ------------------------ Bootstrap Parent Modal  --------------------- */
         /* ---------------------------------------------------------------------- */
-        TM_loadBSParentModal: function() {
+        /*TM_loadBSParentModal: function() {
             var ajaxLoadContent = true;
             if( ajaxLoadContent ) {
                 $.ajax({
@@ -308,7 +308,7 @@ var THEMEMASCOT = {};
                     dataType: 'html'
                 });
             }
-        },
+        },*/
 
         /* ---------------------------------------------------------------------- */
         /* ------------------------------ Demo Switcher  ------------------------ */
