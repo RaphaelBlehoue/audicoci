@@ -1,0 +1,31 @@
+{% extends 'security.html.twig' %}
+{% block title %} {% endblock %}
+{% block body %}
+  <div class="col-12">
+    <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+      <h5 class="text-uppercase">{{ 'Admin connexion' }}</h5>
+      <br>
+        {% if error %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+              {{ error.messageKey|trans(error.messageData, 'security') }}
+          </div>
+        {% endif %}
+      <form class="form-type-material" action="{{ path('signin_page') }}" method="post">
+        <div class="form-group">
+          <label for="username">{{ 'Entrez votre adresse email' }}</label>
+          <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}">
+        </div>
+        <div class="form-group">
+          <label for="password">{{ 'Entrez le mot de passe' }}</label>
+          <input type="password" class="form-control" id="password" name="_password">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Se connecter' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

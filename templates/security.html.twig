@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="La Finance s'engage | CECGI | Espartners">
+    <meta name="keywords" content="login, signin">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('build/back/css/core.css','back') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('build/back/css/app.css','back') }}" type="text/css" />
+    {% endblock %}
+    <link rel="apple-touch-icon" href="">
+    <link rel="icon" href="">
+</head>
+<body>
+<div class="row min-h-fullscreen center-vh p-20 m-0">
+    {% block body %}{% endblock %}
+</div>
+<script src="{{ asset('build/admin/js/core.min.js') }}"></script>
+<script src="{{ asset('build/admin/js/app.min.js') }}"></script>
+<script src="{{ asset('build/admin/js/script.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "build/back/css/app.css": "/build/back/css/app.css",
+  "build/back/css/core.css": "/build/back/css/core.css",
+  "build/back/fonts/fontawesome-webfont.eot?v=4.7.0": "/build/back/fonts/fontawesome-webfont.674f50d2.eot",
+  "build/back/fonts/fontawesome-webfont.ttf?v=4.7.0": "/build/back/fonts/fontawesome-webfont.b06871f2.ttf",
+  "build/back/fonts/fontawesome-webfont.woff2?v=4.7.0": "/build/back/fonts/fontawesome-webfont.af7ae505.woff2",
+  "build/back/fonts/fontawesome-webfont.woff?v=4.7.0": "/build/back/fonts/fontawesome-webfont.fee66e71.woff",
+  "build/back/fonts/themify.eot?-fvbane": "/build/back/fonts/themify.2c454669.eot",
+  "build/back/fonts/themify.ttf?-fvbane": "/build/back/fonts/themify.e23a7dca.ttf",
+  "build/back/fonts/themify.woff?-fvbane": "/build/back/fonts/themify.a1ecc3b8.woff",
+  "build/back/images/fontawesome-webfont.svg?v=4.7.0": "/build/back/images/fontawesome-webfont.912ec66d.svg",
+  "build/back/images/general.png": "/build/back/images/general.a974fa9e.png",
+  "build/back/images/themify.svg?-fvbane": "/build/back/images/themify.9c8e96ec.svg",
+  "build/back/js/app.js": "/build/back/js/app.js",
+  "build/back/js/core.js": "/build/back/js/core.js",
+  "build/back/js/script.js": "/build/back/js/script.js",
+  "build/back/manifest.js": "/build/back/manifest.js",
+  "build/back/vendor.js": "/build/back/vendor.js"
+}
