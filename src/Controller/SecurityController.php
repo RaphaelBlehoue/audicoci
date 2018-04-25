@@ -49,23 +49,21 @@ class SecurityController extends Controller
 
     /**
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/secure/register", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(Request $request)
     {
         $users = new Users();
         $form = $this->createForm(RegisterType::class, $users);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $users->setRoles(['ROLE_ADMIN']);
             $entityManager->persist($users);
             $entityManager->flush();
             $this->authenticateUser($users);
-            return $this->redirectToRoute('account', array(), 301);
+            return $this->redirectToRoute('admin', array(), 301);
         }
         return $this->render('security/signup_page.html.twig', [
            'form' => $form->createView()

@@ -61,7 +61,7 @@ class RedirectUserListener implements EventSubscriberInterface
             $isPath = true;
         }
         if($isPath && $this->authorizationChecker->isGranted('ROLE_USER')){
-            $url = $this->route->generate('homepage');
+            $url = $this->route->generate('index_page');
             $response = new RedirectResponse($url);
             $event->setResponse($response);
         }

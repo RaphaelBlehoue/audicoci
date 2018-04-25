@@ -1,83 +1,36 @@
 {% extends 'security.html.twig' %}
 {% block title %} {% endblock %}
 {% block body %}
-    <!-- section image -->
-  <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(../assets/img/gallery/11.jpg)" data-overlay="5">
-    <div class="row h-100 pl-50">
-      <div class="col-md-10 col-lg-8 align-self-end">
-        <img src="{{ asset('build/front/static/logo.png') }}" alt="la finance s'engage">
-        <br><br><br>
-        <h4 class="text-white">
-          {{ 'Une initiative privée pour le financement des pme'|upper }}
-        </h4>
-        <p class="text-white">
-          {{ 'Conçu par ESPartners et porté par le Patronat ivoirien et plus particulièrement avec la création de la Commission de Financement du Secteur Privé de la CGECI en partenariat avec la Banque Africaine de Développement dans le but de mobiliser le secteur privé pour offrir des solutions concrètes au financement de l’économie ivoirienne'}}
-        </p>
-        <br><br>
-      </div>
-    </div>
-  </div>
-  <!-- section Login -->
-  <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
-    <div class="px-40 py-30">
-      <div><img src="{{ asset('build/back/static/logo-web-dash.png') }}" alt="La finance s'engage"></div>
-      <h5>{{ 'Créer votre compte FSE' }}</h5><br>
-
-      {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
+    <div class="col-12">
+      <div class="card card-shadowed px-50 py-30 w-450px mx-auto" style="max-width: 100%">
+        <h5 class="text-uppercase">{{ 'Admin inscription' }}</h5>
+        <br>
+        {{ form_start(form, {'method': 'post', 'action': path('register'), 'attr': {'class': 'form-type-material', novalidate: 'novalidate'} } ) }}
         {% set class = 'form-control' %}
-        {% if form.phone.vars.errors|length > 0 %}
-            {% set class = 'form-control is-invalid' %}
-        {% endif %}
-        <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="lastname">{{ 'Entrez votre Nom' }}</label>
-                {{ form_widget(form.lastname, {'attr': {'class' :class, 'placeholder' : 'ex: Konan'}}) }}
+                {{ form_widget(form.lastname, {'attr': {'class' :class}}) }}
                 {{ form_errors(form.lastname) }}
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="firstname">{{ 'Entrez votre Prénom' }}</label>
-                {{ form_widget(form.firstname, {'attr': {'class' :class, 'placeholder' : 'ex: Peter'}}) }}
+                {{ form_widget(form.firstname, {'attr': {'class' :class}}) }}
                 {{ form_errors(form.firstname) }}
             </div>
-        </div>
-        <div class="form-group">
-          <label for="firstname">{{ 'Entez une adresse Email' }}</label>
-            {{ form_widget(form.email, {'attr': {'class' : class, 'placeholder' : 'ex: test@example.com'}}) }}
-            {{ form_errors(form.email) }}
-        </div>
-        <div class="form-group">
-            <label for="phone.country">{{ 'Choix de votre Pays' }}</label>
-            {{ form_widget(form.phone.country, {'label': false, 'attr': {'class' :class}}) }}
-        </div>
-        <div class="form-group">
-            <label for="phone.number">{{ 'Entrez votre Téléphone' }}</label>
-            {{ form_widget(form.phone.number, {'label': false, 'attr': {'class' :class, 'placeholder' : '07000007'}} ) }}
-            {{ form_errors(form.phone) }}
-        </div>
-        <div class="form-group">
-          <label for="password">{{ ' Mot de passe' }}</label>
-            {{ form_widget(form.plainPassword, {'attr': {'class' :class, 'placeholder' : 'Mot de passe'}}) }}
-            {{ form_errors(form.plainPassword) }}
-        </div>
-
-        <!--<div class="form-group flexbox">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" checked>
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Remember me</span>
-          </label>
-
-          <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
-        </div> -->
-
-        <div class="form-group">
-          <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Créer mon compte' }}</button>
-        </div>
-      {{ form_end(form) }}
-      <p class="text-center text-muted fs-13 mt-10">
-          {{ 'Vous avez un compte ?' }} <a class="text-primary fw-500" href="{{ path('signin_page') }}">{{ 'Se connecter'|capitalize }}</a>
-      </p>
+            <div class="form-group">
+              <label for="firstname">{{ 'Entez une adresse Email' }}</label>
+                {{ form_widget(form.email, {'attr': {'class' : class}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+            <div class="form-group">
+              <label for="password">{{ ' Mot de passe' }}</label>
+                {{ form_widget(form.plainPassword, {'attr': {'class' :class}}) }}
+                {{ form_errors(form.plainPassword) }}
+            </div>
+            <div class="form-group">
+              <button class="btn btn-bold btn-block btn-primary" type="submit">{{ 'Créer mon compte' }}</button>
+            </div>
+        {{ form_end(form) }}
     </div>
-  </div>
-
+</div>
 {% endblock %}

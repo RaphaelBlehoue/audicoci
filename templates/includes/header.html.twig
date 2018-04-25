@@ -16,7 +16,11 @@
                             </li>
                             <li class="text-white">|</li>
                             <li>
-                                <a class="text-white" href="#">{{ 'Connexion' }}</a>
+                                {% if app.user and app.user|length > 0 %}
+                                    <a class="text-white" href="{{ path('admin') }}">{{ 'Accédez à l\'admin' }}</a>
+                                {% else %}
+                                    <a class="text-white" href="{{ path('signin_page') }}">{{ 'Connexion' }}</a>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
