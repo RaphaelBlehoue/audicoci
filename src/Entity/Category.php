@@ -29,6 +29,13 @@ class Category
     protected $name;
 
     /**
+     * @var
+     * @ORM\Column(type="text", name="content")
+     * @Assert\NotNull(message="Entrez un contenu de description")
+     */
+    protected $content;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @Gedmo\Slug(fields={"name", "id"}, separator="_", updatable=false)
      */
@@ -124,4 +131,17 @@ class Category
 
         return $this;
     }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
 }

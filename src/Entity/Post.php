@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints AS Assert;
@@ -77,7 +79,7 @@ class Post
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="medias")
+     * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="post")
      */
     protected $medias;
 
@@ -85,6 +87,7 @@ class Post
     public function __construct()
     {
         $this->created = new \DateTime('now');
+        $this->medias = new ArrayCollection();
     }
 
 
@@ -214,4 +217,36 @@ class Post
     {
         return $this->getUploadDir().'/'.$this->imageName;
     }
+
+    /**
+     * @return Collection|Media[]
+     */
+    public function getMedias(): Collection
+    {
+        return $this->medias;
+    }
+
+    public function addMedia(Media $media): self
+    {
+        if (!$this->medias->contains($media)) {
+            $this->medias[] = $media;
+            $media->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedia(Media $media): self
+    {
+        if ($this->medias->contains($media)) {
+            $this->medias->removeElement($media);
+            // set the owning side to null (unless already changed)
+            if ($media->getPost() === $this) {
+                $media->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+    
 }

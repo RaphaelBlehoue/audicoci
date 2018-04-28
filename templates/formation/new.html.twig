@@ -1,11 +1,24 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Formation{% endblock %}
-
+{% extends 'admin.html.twig' %}
+{% block title %} {{ 'Formation' }} {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/back/js/ckeditor.css', 'back') }}">
+{% endblock %}
 {% block body %}
-    <h1>Create new Formation</h1>
-
-    {{ include('formation/_form.html.twig') }}
-
-    <a href="{{ path('formation_index') }}">back to list</a>
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér une Formation'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('formation_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('formation/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/back/js/ckeditor.js', 'back') }}"></script>
 {% endblock %}

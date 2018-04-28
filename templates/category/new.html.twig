@@ -1,11 +1,22 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Category{% endblock %}
-
+{% extends 'admin.html.twig' %}
+{% block title %} {{ 'Service Parent' }} {% endblock %}
 {% block body %}
-    <h1>Create new Category</h1>
-
-    {{ include('category/_form.html.twig') }}
-
-    <a href="{{ path('category_index') }}">back to list</a>
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér un service parent'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('category_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('category/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.3/classic/ckeditor.js"></script>
+    <script src="{{ asset('build/admin/js/ckedit.js') }}"></script>
 {% endblock %}

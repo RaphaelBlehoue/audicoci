@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,13 +14,15 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('imageSize')
-            ->add('imageName')
-            ->add('content')
-            ->add('created')
+            ->add('title', TextType::class, [
+                'label' => 'Titre de l\'actualité',
+                'attr' => ['placeholder' => 'Entrez le titre ici']
+            ])
             ->add('has_media')
-            ->add('slug')
+            ->add('content', TextareaType::class, [
+                'label' => 'Contenu  de l\'actualité',
+                'attr'  => ['placeholder' => 'Entrez le contenu ici', 'class' => 'ckeditor']
+            ])
         ;
     }
 

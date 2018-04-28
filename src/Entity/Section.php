@@ -58,7 +58,7 @@ class Section
     protected $imageName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", name="content")
      */
     protected $content;
 
@@ -69,7 +69,7 @@ class Section
     protected $slug;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", name="small_content")
      */
     protected $small_content;
 
@@ -104,30 +104,6 @@ class Section
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getSmallContent(): ?string
-    {
-        return $this->small_content;
-    }
-
-    public function setSmallContent(string $small_content): self
-    {
-        $this->small_content = $small_content;
 
         return $this;
     }
@@ -231,5 +207,29 @@ class Section
     public function getAssertPath()
     {
         return $this->getUploadDir().'/'.$this->imageName;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getSmallContent(): ?string
+    {
+        return $this->small_content;
+    }
+
+    public function setSmallContent(string $small_content): self
+    {
+        $this->small_content = $small_content;
+
+        return $this;
     }
 }

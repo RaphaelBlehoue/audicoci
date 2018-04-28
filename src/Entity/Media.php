@@ -97,4 +97,40 @@ class Media
             unlink($this->getAssertPath());
         }
     }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getActived(): ?bool
+    {
+        return $this->actived;
+    }
+
+    public function setActived(bool $actived): self
+    {
+        $this->actived = $actived;
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
+
+        return $this;
+    }
 }

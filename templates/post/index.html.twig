@@ -1,47 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
-{% block title %}Post index{% endblock %}
-
+{% block title %} {{ 'Actualités' }} {% endblock %}
 {% block body %}
-    <h1>Post index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>ImageSize</th>
-                <th>ImageName</th>
-                <th>Content</th>
-                <th>Created</th>
-                <th>Has_media</th>
-                <th>Slug</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.title }}</td>
-                <td>{{ post.imageSize }}</td>
-                <td>{{ post.imageName }}</td>
-                <td>{{ post.content }}</td>
-                <td>{{ post.created ? post.created|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ post.has_media ? 'Yes' : 'No' }}</td>
-                <td>{{ post.slug }}</td>
-                <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('post_new') }}">Create new</a>
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des articles'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('post_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>A Plus d'images</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>A Plus d'images</th>
+                        <th>actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ post.id }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.created ? post.created|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ post.has_media ? 'OUI' : 'NON' }}</td>
+                            <td>
+                                <a href="{{ path('post_show', {'id': post.id}) }}" class="btn btn-primary">show</a>
+                                <a href="{{ path('post_edit', {'id': post.id}) }}" class="btn-primary btn">edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="9">Pas de contenu trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
