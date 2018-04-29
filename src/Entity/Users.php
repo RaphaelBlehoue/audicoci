@@ -75,6 +75,11 @@ class Users implements UserInterface, \Serializable
     protected $isActive;
 
     /**
+     * @ORM\Column(type="json")
+     */
+    protected $roles = [];
+
+    /**
      * @var
      * @ORM\Column(name="created", type="datetime",nullable=true)
      */
@@ -212,15 +217,6 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
-     */
-    public function getRoles()
-    {
-        return array('ROLE_ADMIN');
-    }
-
-
-    /**
      * Returns the password used to authenticate the user.
      *
      * This should be the encoded password. On authentication, a plain-text
@@ -342,5 +338,26 @@ class Users implements UserInterface, \Serializable
     public function setPlainPassword(?string $password)
     {
         $this->plainPassword = $password;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        return array_unique(array_merge(['ROLE_USER'], $this->roles));
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function resetRoles()
+    {
+        $this->roles = [];
     }
 }
