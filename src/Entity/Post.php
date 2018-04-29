@@ -25,6 +25,7 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Veuillez entrez le title")
      */
     protected $title;
 
@@ -33,9 +34,9 @@ class Post
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
-     *
+     * @Assert\NotNull(message="Veuillez uploader une images")
      * @Vich\UploadableField(mapping="post_image", fileNameProperty="imageName", size="imageSize")
-     *
+     * 
      * @var File $imageFile
      */
     protected $imageFile;
@@ -43,7 +44,7 @@ class Post
 
     /**
      * @ORM\Column(type="integer")
-     *
+     * 
      * @var integer
      */
     protected $imageSize;
@@ -57,6 +58,7 @@ class Post
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotNull(message="Veuillez entrez un contenu")
      */
     protected $content;
 
@@ -68,7 +70,7 @@ class Post
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $has_media;
+    protected $hasMedia;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -88,6 +90,7 @@ class Post
     {
         $this->created = new \DateTime('now');
         $this->medias = new ArrayCollection();
+        $this->hasMedia = false;
     }
 
 
@@ -134,12 +137,12 @@ class Post
 
     public function getHasMedia(): ?bool
     {
-        return $this->has_media;
+        return $this->hasMedia;
     }
 
-    public function setHasMedia(bool $has_media): self
+    public function setHasMedia(bool $hasMedia): self
     {
-        $this->has_media = $has_media;
+        $this->hasMedia = $hasMedia;
         return $this;
     }
 
