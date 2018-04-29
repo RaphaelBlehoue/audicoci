@@ -24,7 +24,7 @@ class FormationType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de la formation',
-                'attr'  => ['placeholder' => 'Entrez le contenu ici', 'class' => 'ckeditor']
+                'attr'  => ['placeholder' => 'Entrez le contenu ici']
             ])
         ;
     }

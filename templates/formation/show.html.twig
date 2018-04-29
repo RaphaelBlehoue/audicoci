@@ -14,16 +14,16 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Title</th>
+                        <th>{{ 'Titre formation' }}</th>
                         <td>{{ formation.title }}</td>
                     </tr>
                     <tr>
-                        <th>Content</th>
-                        <td>{{ formation.content|raw }}</td>
+                        <th>{{ 'Sommaire Formation' }}</th>
+                        <td>{{ formation.smallContent }}</td>
                     </tr>
                     <tr>
-                        <th>Small_content</th>
-                        <td>{{ formation.smallContent }}</td>
+                        <th>{{ 'Contenu Formation' }}</th>
+                        <td>{{ formation.content|raw }}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints AS Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FormationRepository")
@@ -18,18 +19,21 @@ class Formation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Veuillez entrez le titre de la formation")
      */
     protected $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotNull(message="Veuillez entrez le contenu de la formation")
      */
     protected $content;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotNull(message="Veuillez entrez le sommaire de la formation")
      */
-    protected $small_content;
+    protected $smallContent;
 
 
 
@@ -64,12 +68,12 @@ class Formation
 
     public function getSmallContent(): ?string
     {
-        return $this->small_content;
+        return $this->smallContent;
     }
 
-    public function setSmallContent(?string $small_content): self
+    public function setSmallContent(?string $smallContent): self
     {
-        $this->small_content = $small_content;
+        $this->smallContent = $smallContent;
 
         return $this;
     }

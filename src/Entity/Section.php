@@ -72,10 +72,10 @@ class Section
     protected $slug;
 
     /**
-     * @ORM\Column(type="text", name="small_content")
+     * @ORM\Column(type="text", name="smallContent")
      * @Assert\NotNull(message="Entrez le sommaires")
      */
-    protected $small_content;
+    protected $smallContent;
 
     /**
      * @var
@@ -230,12 +230,12 @@ class Section
 
     public function getSmallContent(): ?string
     {
-        return $this->small_content;
+        return $this->smallContent;
     }
 
-    public function setSmallContent(string $small_content): self
+    public function setSmallContent(string $smallContent): self
     {
-        $this->small_content = $small_content;
+        $this->smallContent = $smallContent;
 
         return $this;
     }
