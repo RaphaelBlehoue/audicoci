@@ -53,13 +53,13 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Nom obligatoire")
+     * @Assert\NotBlank(message="Nom obligatoire", groups={"default", "edit"})
      */
     protected $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true, name="lastname")
-     * @Assert\NotBlank(message="Prénom obligatoire")
+     * @Assert\NotBlank(message="Prénom obligatoire", groups={"default", "edit"})
      */
     protected $lastname;
 
@@ -340,24 +340,42 @@ class Users implements UserInterface, \Serializable
         $this->plainPassword = $password;
     }
 
-    /**
-     * @return array
-     */
-    public function getRoles(): array
-    {
-        return array_unique(array_merge(['ROLE_USER'], $this->roles));
-    }
-
-    /**
-     * @param array $roles
-     */
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-    }
 
     public function resetRoles()
     {
         $this->roles = [];
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        return $roles;
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasRole($role)
+    {
+        return in_array(strtoupper($role), $this->getRoles(), true);
+    }
+
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return Users
+     */
+    public function setRoles( array $roles)
+    {
+        $this->roles = $roles;
+        return $this;
     }
 }

@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+{% block title %} {{ 'Utilisateurs' }} {% endblock %}
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Ajouter un utilisateurs'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('users_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('users/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

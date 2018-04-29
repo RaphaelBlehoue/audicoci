@@ -1,0 +1,18 @@
+<div class="card card-round card-shadowed px-50 py-30 w-700px mb-0" style="max-width: 100%">
+    <h5 class="text-uppercase">{{ 'Formulaire Utilisateur' }}</h5>
+    <br>
+    {{ form_start(form, {'attr': {'class': 'card', novalidate: 'novalidate'} } ) }}
+    <div class="form-group">
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        <button class="btn btn-label {{ button_class|default('btn-info') }}">
+            <label><i class="ti-save"></i></label>
+            {{ button_label|default('Enregister') }}
+        </button>
+        <a class="btn btn-label btn-dark" href="{{ path('users_index') }}">
+            <label><i class="ti-arrow-left"></i></label>
+            {{ 'Retour à la liste'}}
+        </a>
+    </div>
+    {{ form_end(form) }}
+</div>
