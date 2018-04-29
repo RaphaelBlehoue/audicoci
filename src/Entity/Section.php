@@ -26,6 +26,7 @@ class Section
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="Entrez le titre du service")
      */
     protected $title;
 
@@ -34,6 +35,7 @@ class Section
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
+     * @Assert\NotNull(message="Uploadez une images illustratif")
      *
      * @Vich\UploadableField(mapping="section_image", fileNameProperty="imageName", size="imageSize")
      *
@@ -59,6 +61,7 @@ class Section
 
     /**
      * @ORM\Column(type="text", name="content")
+     * @Assert\NotNull(message="Entrez le contenu descriptif")
      */
     protected $content;
 
@@ -70,6 +73,7 @@ class Section
 
     /**
      * @ORM\Column(type="text", name="small_content")
+     * @Assert\NotNull(message="Entrez le sommaires")
      */
     protected $small_content;
 
@@ -82,10 +86,13 @@ class Section
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="sections")
+     * @Assert\NotNull(message="Faite le choix d'un service parent avant de continuer")
      */
     protected $category;
 
-
+    /**
+     * Section constructor.
+     */
     public function __construct()
     {
         $this->created = new \DateTime('now');

@@ -71,7 +71,7 @@ class SectionController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('section_edit', ['id' => $section->getId()]);
+            return $this->redirectToRoute('section_index');
         }
         return $this->render('section/edit.html.twig', [
             'section' => $section,

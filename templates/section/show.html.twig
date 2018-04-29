@@ -12,19 +12,19 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <th>Title</th>
+                        <th>{{ 'Titre' }}</th>
                         <td>{{ section.title }}</td>
                     </tr>
                     <tr>
-                        <th>Content</th>
-                        <td>{{ section.content|raw }}</td>
-                    </tr>
-                    <tr>
-                        <th>Small_content</th>
+                        <th>{{ 'Sommaire' }}</th>
                         <td>{{ section.smallContent }}</td>
                     </tr>
                     <tr>
-                        <th>Created</th>
+                        <th>{{ 'Contenu' }}</th>
+                        <td>{{ section.content|raw }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Date de creation' }}</th>
                         <td>{{ section.created ? section.created|date('Y-m-d H:i:s') : '' }}</td>
                     </tr>
                     </tbody>

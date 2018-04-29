@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Section;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -9,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SectionType extends AbstractType
 {
@@ -16,8 +18,15 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('category', EntityType::class, [
+                'class' => Category::class,
                 'choice_label' => 'name',
-                'label' => 'choix du service parent'
+                'label' => 'Choix du service parent',
+                'required' => true,
+                'attr' => ['placeholder' => 'Choix du service parent']
+            ])
+            ->add('imageFile', VichImageType::class, [
+                'attr'  => ['data-provide' => 'dropify'],
+                'label' => false
             ])
             ->add('title', TextType::class, [
                 'label' => 'Titre du service',
