@@ -6,13 +6,14 @@ use App\Entity\Users;
 use App\Form\UsersEditType;
 use App\Form\UsersType;
 use App\Repository\UsersRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/users")
+ * @Route("/admin/users")
  */
 class UsersController extends Controller
 {
@@ -63,6 +64,7 @@ class UsersController extends Controller
 
     /**
      * @Route("/{id}/edit", name="users_edit", methods="GET|POST")
+     * @Security("is_granted('ROLE_USER')")
      * @param Request $request
      * @param Users $user
      * @return Response

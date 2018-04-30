@@ -11,12 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/formation")
+ * @Route("/admin/formation")
  */
 class FormationController extends Controller
 {
     /**
      * @Route("/", name="formation_index", methods="GET")
+     * @param FormationRepository $formationRepository
+     * @return Response
      */
     public function index(FormationRepository $formationRepository): Response
     {
@@ -25,6 +27,8 @@ class FormationController extends Controller
 
     /**
      * @Route("/new", name="formation_new", methods="GET|POST")
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -48,6 +52,8 @@ class FormationController extends Controller
 
     /**
      * @Route("/{id}", name="formation_show", methods="GET")
+     * @param Formation $formation
+     * @return Response
      */
     public function show(Formation $formation): Response
     {
@@ -56,6 +62,9 @@ class FormationController extends Controller
 
     /**
      * @Route("/{id}/edit", name="formation_edit", methods="GET|POST")
+     * @param Request $request
+     * @param Formation $formation
+     * @return Response
      */
     public function edit(Request $request, Formation $formation): Response
     {
@@ -76,6 +85,9 @@ class FormationController extends Controller
 
     /**
      * @Route("/{id}", name="formation_delete", methods="DELETE")
+     * @param Request $request
+     * @param Formation $formation
+     * @return Response
      */
     public function delete(Request $request, Formation $formation): Response
     {
@@ -84,7 +96,6 @@ class FormationController extends Controller
             $em->remove($formation);
             $em->flush();
         }
-
         return $this->redirectToRoute('formation_index');
     }
 }

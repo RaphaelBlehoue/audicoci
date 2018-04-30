@@ -75,7 +75,7 @@ class Users implements UserInterface, \Serializable
     protected $isActive;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     protected $roles = [];
 
@@ -353,6 +353,10 @@ class Users implements UserInterface, \Serializable
     public function getRoles()
     {
         $roles = $this->roles;
+        if (!in_array('ROLE_USER', $roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+
         return $roles;
     }
 
