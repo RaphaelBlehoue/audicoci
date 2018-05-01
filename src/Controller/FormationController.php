@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/formation", schemes={"https"})
+ * @Route("/admin/formation")
  */
 class FormationController extends Controller
 {
     /**
-     * @Route("/", name="formation_index", methods="GET")
+     * @Route("/", name="formation_index", methods="GET", schemes={"%secure_channel%"})
      * @param FormationRepository $formationRepository
      * @return Response
      */
@@ -26,7 +26,7 @@ class FormationController extends Controller
     }
 
     /**
-     * @Route("/new", name="formation_new", methods="GET|POST")
+     * @Route("/new", name="formation_new", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
@@ -51,7 +51,7 @@ class FormationController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="formation_show", methods="GET")
+     * @Route("/{id}", name="formation_show", methods="GET", schemes={"%secure_channel%"})
      * @param Formation $formation
      * @return Response
      */
@@ -61,7 +61,7 @@ class FormationController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="formation_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="formation_edit", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Formation $formation
      * @return Response
@@ -84,7 +84,7 @@ class FormationController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="formation_delete", methods="DELETE")
+     * @Route("/{id}", name="formation_delete", methods="DELETE", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Formation $formation
      * @return Response

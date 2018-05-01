@@ -8,12 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class IndexController extends Controller
 {
     /**
-     * @Route("/", name="index_page")
+     * @Route("/", name="index_page", schemes={"%secure_channel%"})
      */
     public function index()
     {
-        return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
+        return $this->render('index/index.html.twig');
     }
 }

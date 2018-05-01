@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/post", schemes={"https"})
+ * @Route("/admin/post")
  */
 class PostController extends Controller
 {
     /**
-     * @Route("/", name="post_index", methods="GET")
+     * @Route("/", name="post_index", methods="GET", schemes={"%secure_channel%"})
      * @param PostRepository $postRepository
      * @return Response
      */
@@ -26,7 +26,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/new", name="post_new", methods="GET|POST")
+     * @Route("/new", name="post_new", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
@@ -51,7 +51,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="post_show", methods="GET")
+     * @Route("/{id}", name="post_show", methods="GET", schemes={"%secure_channel%"})
      * @param Post $post
      * @return Response
      */
@@ -61,7 +61,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="post_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="post_edit", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Post $post
      * @return Response
@@ -84,7 +84,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="post_delete", methods="DELETE")
+     * @Route("/{id}", name="post_delete", methods="DELETE", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Post $post
      * @return Response

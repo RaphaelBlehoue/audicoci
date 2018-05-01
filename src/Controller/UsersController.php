@@ -13,12 +13,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/users", schemes={"https"})
+ * @Route("/admin/users")
  */
 class UsersController extends Controller
 {
     /**
-     * @Route("/", name="users_index", methods="GET")
+     * @Route("/", name="users_index", methods="GET", schemes={"%secure_channel%"})
      * @param UsersRepository $usersRepository
      * @return Response
      */
@@ -28,7 +28,7 @@ class UsersController extends Controller
     }
 
     /**
-     * @Route("/new", name="users_new", methods="GET|POST")
+     * @Route("/new", name="users_new", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
@@ -53,7 +53,7 @@ class UsersController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="users_show", methods="GET")
+     * @Route("/{id}", name="users_show", methods="GET", schemes={"%secure_channel%"})
      * @param Users $user
      * @return Response
      */
@@ -63,7 +63,7 @@ class UsersController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="users_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="users_edit", methods="GET|POST", schemes={"%secure_channel%"})
      * @Security("is_granted('ROLE_USER')")
      * @param Request $request
      * @param Users $user
@@ -84,7 +84,7 @@ class UsersController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="users_delete", methods="DELETE")
+     * @Route("/{id}", name="users_delete", methods="DELETE", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Users $user
      * @return Response

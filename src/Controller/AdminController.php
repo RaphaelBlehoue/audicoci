@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class AdminController
  * @package App\Controller
- * @Route("/admin" , schemes={"https"})
+ * @Route("/admin")
  */
 class AdminController extends Controller
 {
     /**
-     * @Route("/", name="admin")
+     * @Route("/", name="admin", schemes={"%secure_channel%"})
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()

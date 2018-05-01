@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/section", schemes={"https"})
+ * @Route("/admin/section")
  */
 class SectionController extends Controller
 {
     /**
-     * @Route("/", name="section_index", methods="GET")
+     * @Route("/", name="section_index", methods="GET", schemes={"%secure_channel%"})
      * @param SectionRepository $sectionRepository
      * @return Response
      */
@@ -26,7 +26,7 @@ class SectionController extends Controller
     }
 
     /**
-     * @Route("/new", name="section_new", methods="GET|POST")
+     * @Route("/new", name="section_new", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
@@ -49,7 +49,7 @@ class SectionController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="section_show", methods="GET")
+     * @Route("/{id}", name="section_show", methods="GET", schemes={"%secure_channel%"})
      * @param Section $section
      * @return Response
      */
@@ -59,7 +59,7 @@ class SectionController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="section_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="section_edit", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Section $section
      * @return Response
@@ -80,7 +80,7 @@ class SectionController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="section_delete", methods="DELETE")
+     * @Route("/{id}", name="section_delete", methods="DELETE", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Section $section
      * @return Response

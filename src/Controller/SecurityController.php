@@ -19,7 +19,7 @@ class SecurityController extends Controller
 {
 
     /**
-     * @Route("/secure/signin", name="signin_page", schemes={"https"})
+     * @Route("/secure/signin", name="signin_page", schemes={"%secure_channel%"})
      * @param Request $request
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\Response
@@ -40,7 +40,7 @@ class SecurityController extends Controller
      * Mais celle ci ne doit jamais être executé car symfony l'interceptera avant.
      *
      *
-     * @Route("/logout", name="security_logout", schemes={"https"})
+     * @Route("/logout", name="security_logout", schemes={"%secure_channel%"})
      * @throws \Exception
      */
     public function logout(){
@@ -50,7 +50,7 @@ class SecurityController extends Controller
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/secure/register", name="register", schemes={"https"})
+     * @Route("/secure/register", name="register", schemes={"%secure_channel%"})
      */
     public function register(Request $request)
     {

@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/category", schemes={"https"})
+ * @Route("/admin/category")
  */
 class CategoryController extends Controller
 {
     /**
-     * @Route("/", name="category_index", methods="GET")
+     * @Route("/", name="category_index", methods="GET", schemes={"%secure_channel%"})
      * @param CategoryRepository $categoryRepository
      * @return Response
      */
@@ -26,7 +26,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/new", name="category_new", methods="GET|POST")
+     * @Route("/new", name="category_new", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @return Response
      */
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="category_show", methods="GET")
+     * @Route("/{id}", name="category_show", methods="GET", schemes={"%secure_channel%"})
      * @param Category $category
      * @return Response
      */
@@ -59,7 +59,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="category_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="category_edit", methods="GET|POST", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Category $category
      * @return Response
@@ -79,7 +79,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="category_delete", methods="DELETE")
+     * @Route("/{id}", name="category_delete", methods="DELETE", schemes={"%secure_channel%"})
      * @param Request $request
      * @param Category $category
      * @return Response
