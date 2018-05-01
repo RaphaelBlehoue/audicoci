@@ -1,13 +1,13 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{HTTPS} off
-    RewriteCond %{THE_REQUEST} !\.(png|jpg|gif|jpeg|bmp)
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    #RewriteCond %{HTTPS} off
+    #RewriteCond %{THE_REQUEST} !\.(png|jpg|gif|jpeg|bmp)
+    #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-    RewriteCond %{HTTPS} on
-    RewriteCond %{THE_REQUEST} \.(png|jpg|gif|jpeg|bmp)
-    RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    #RewriteCond %{HTTPS} on
+    #RewriteCond %{THE_REQUEST} \.(png|jpg|gif|jpeg|bmp)
+    #RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     # Determine the RewriteBase automatically and set it as environment variable.
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
