@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class AdminController
  * @package App\Controller
- * @Route("/admin")
+ * @Route("/admin" , schemes={"https"})
  */
 class AdminController extends Controller
 {
