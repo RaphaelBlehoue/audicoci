@@ -76,7 +76,7 @@ class Users implements UserInterface, \Serializable
 
     /**
      * @var array
-     * @ORM\Column(type="json_array", nullable=true)
+     * @ORM\Column(type="array", nullable=true)
      */
     protected $roles = [];
 
