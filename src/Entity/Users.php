@@ -75,7 +75,8 @@ class Users implements UserInterface, \Serializable
     protected $isActive;
 
     /**
-     * @ORM\Column(type="json_array")
+     * @var array
+     * @ORM\Column(type="json_array", nullable=true)
      */
     protected $roles = [];
 
@@ -340,46 +341,25 @@ class Users implements UserInterface, \Serializable
         $this->plainPassword = $password;
     }
 
+    /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        return array_unique(array_merge(['ROLE_USER'], $this->roles));
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
 
     public function resetRoles()
     {
         $this->roles = [];
-    }
-
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRoles()
-    {
-        $roles = $this->roles;
-        if (!in_array('ROLE_USER', $roles)) {
-            $roles[] = 'ROLE_USER';
-        }
-
-        return $roles;
-    }
-
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasRole($role)
-    {
-        return in_array(strtoupper($role), $this->getRoles(), true);
-    }
-
-
-    /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return Users
-     */
-    public function setRoles( array $roles)
-    {
-        $this->roles = $roles;
-        return $this;
     }
 }
