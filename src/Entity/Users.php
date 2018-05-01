@@ -350,6 +350,15 @@ class Users implements UserInterface, \Serializable
     }
 
     /**
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        return in_array(strtoupper($role), $this->getRoles(), true);
+    }
+
+    /**
      * @param array $roles
      */
     public function setRoles(array $roles)
