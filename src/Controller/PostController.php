@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/post")
+ * @Route("/admin/post", schemes={"https"})
  */
 class PostController extends Controller
 {

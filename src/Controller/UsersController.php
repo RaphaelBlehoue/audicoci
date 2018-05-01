@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/users")
+ * @Route("/admin/users", schemes={"https"})
  */
 class UsersController extends Controller
 {

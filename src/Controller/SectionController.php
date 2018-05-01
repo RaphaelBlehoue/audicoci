@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/section")
+ * @Route("/admin/section", schemes={"https"})
  */
 class SectionController extends Controller
 {
