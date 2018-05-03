@@ -1,35 +1,386 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Bienvenue' }}{% endblock %}
 {% block stylesheets %}
-    <!-- Revolution Slider 5.x CSS settings -->
-    <link  href="{{ asset('build/global/js/revolution-slider/css/settings.css') }}" rel="stylesheet" type="text/css"/>
-    <link  href="{{ asset('build/global/js/revolution-slider/css/layers.css') }}" rel="stylesheet" type="text/css"/>
-    <link  href="{{ asset('build/global/js/revolution-slider/css/navigation.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/global/revolution/css/layers.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/global/revolution/css/settings.css') }}">
 {% endblock %}
 {% block body %}
     {{ include('includes/slide.html.twig') }}
-    {{ include('includes/home-boxs.html.twig') }}
-    {{ include('index/block_page/about.html.twig') }}
-    {{ include('index/block_page/service.html.twig') }}
-    {{ include('index/block_page/formations.html.twig') }}
-    {{ include('index/block_page/news.html.twig') }}
-    {{ include('index/block_page/contact.html.twig') }}
+    <!-- philosophie -->
+    <section class="flat-imagebox style3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-title center">
+                        <h3 class="top-post">{{ 'La philoshophie d\'audicoci'|upper }}</h3>
+                        <p class="sub-title">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div><!-- /.top-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="imagebox style2 v4 border">
+                        <div class="imagebox-image">
+                            <img src="{{ asset('build/global/images/home/philo_1.jpg') }}" alt="{{ 'A Qui Nous Adressons Nous ?' }}">
+                        </div>
+                        <div class="imagebox-content">
+                            <h6><a href="{{ path('page_philosophie') }}" title="{{ 'A Qui Nous Adressons Nous ?' }}">{{ 'A Qui Nous Adressons Nous ?' }}</a></h6>
+                            <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                            <div class="more-link">
+                                <a href="{{ path('page_philosophie') }}" title="{{ 'En savoir plus' }}">{{ 'Tout savoir'|upper }}</a>
+                            </div>
+                        </div>
+                    </div><!-- /.imagebox style2 v4 -->
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-4">
+                    <div class="imagebox style2 v4 border">
+                        <div class="imagebox-image">
+                            <img src="{{ asset('build/global/images/home/philo_2.jpg') }}" alt="{{ 'Qu\'est Qui Nous Animes' }}">
+                        </div>
+                        <div class="imagebox-content">
+                            <h6><a href="{{ path('page_philosophie') }}" title="">{{ 'Qu\'est Qui Nous Animes' }}</a></h6>
+                            <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                            <div class="more-link">
+                                <a href="{{ path('page_philosophie') }}" title="{{ 'En savoir plus' }}">{{ 'Tout savoir'|upper }}</a>
+                            </div>
+                        </div>
+                    </div><!-- /.imagebox style2 v4 -->
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-4">
+                    <div class="imagebox style2 v4 border">
+                        <div class="imagebox-image">
+                            <img src="{{ asset('build/global/images/home/philo_3.jpg') }}" alt="{{ 'Notre Approche Conseil' }}">
+                        </div>
+                        <div class="imagebox-content">
+                            <h6><a href="{{ path('page_philosophie') }}" title="{{ 'Notre Approche Conseil' }}">{{ 'Notre Approche Conseil' }}</a></h6>
+                            <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                            <div class="more-link">
+                                <a href="{{ path('page_philosophie') }}" title="{{ 'En savoir plus' }}">{{ 'Tout savoir'|upper }}</a>
+                            </div>
+                        </div>
+                    </div><!-- /.imagebox style2 v4 -->
+                </div><!-- /.col-md-4 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <!-- Qui sommes nous -->
+    <section class="flat-about style3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-title center">
+                        <h3 class="top-post">{{ 'Le Cabinet'|upper }}</h3>
+                        <p class="sub-title">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div><!-- /.top-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-about style1">
+                        <ul class="tab-list-about">
+                            <li class="active">{{ 'Qui Sommes Nous'|upper }}</li>
+                            <li>{{ 'Que faisons nous'|upper }}</li>
+                            <li>{{ 'Notre devise'|upper }}</li>
+                        </ul><!-- /.tab-list style1 -->
+                        <div class="content-tab">
+                            <div class="content-inner">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5 box-shadow" src="{{ asset('build/global/images/home/about_1.jpg') }}" alt="{{ 'Qui sommes nous' }}">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Qui sommes nous ?'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                            <div class="read-more">
+                                                <a href="{{ path('page_about') }}" class="box-shadow-1" title="">{{ 'En savoir plus'|upper }}</a>
+                                            </div>
+                                        </div><!-- /.text-content -->
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="content-inner overflow">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5" src="{{ asset('build/global/images/home/about_2.jpg') }}" alt="Que faisons nous">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Que faisons nous'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                            <div class="read-more">
+                                                <a href="{{ path('page_about') }}" class="box-shadow-1" title="">{{ 'En savoir plus'|upper }}</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                            </div>
+                            <div class="content-inner overflow">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5" src="{{ asset('build/global/images/home/about_3.jpg') }}" alt="Notre devise">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Notre devise'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                            <div class="read-more">
+                                                <a href="{{ path('page_about') }}" class="box-shadow-1" title="">{{ 'En savoir plus'|upper }}</a>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                            </div>
+                        </div><!-- /.content-tab -->
+                    </div><!-- /.tab-about style1 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <!-- nous contact parallax -->
+    <section class="flat-call-actions style3 parallax parallax12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="call-actions style4 color-white center">
+                        <h4 class="color-white">{{ 'Vous avez besoins de nous ?' }}</h4>
+                        <p class="sub-title">
+                            Il y a plusieurs façons de nous contacter. Vous pouvez nous laisser un message par Email, nous téléphoner, choisissez ce qui vous convient le mieux.
+                        </p>
+                        <div class="btn-more">
+                            <a href="{{ path('page_contact') }}" title="Nous contacter audicoci">{{ 'Nous contacter'|upper }}</a>
+                        </div>
+                    </div><!-- /.call-actions style3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay style2"></div>
+    </section>
+    <!-- nos services -->
+    <section class="flat-row flat-iconbox style9">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title">
+                        <h3 class="font-weight-7">{{ 'nos services'|upper }}</h3>
+                        <p class="sub-title">Our Experienced Guys At Yolo Always Giving Their Best To Make The Clients Happy!</p>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                {% for i in 1..12 %}
+                <div class="col-lg-4">
+                    <div class="iconbox center style1 v1 custom-padding">
+                        <div class="box-header">
+                            <div class="icon">
+                                <span class="ti-desktop font-size-36"></span>
+                                <span class="ti-desktop two font-size-36"></span>
+                            </div>
+                            <div class="box-title">
+                                <a href="#" title="">{{ 'service' ~ i }}</a>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox style1 -->
+                </div><!-- /.col-lg-4 -->
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section><!-- /.flat-iconbox -->
+
+    <div class="divider80"></div>
+    <!-- nos formations -->
+    <section class="flat-event">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3>{{ 'Nos formations en cours'|upper }}</h3>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="imagebox style2 border v7">
+                        <div class="imagebox-image">
+                            <img src="images/page/box-26.jpg" alt="">
+                        </div><!-- /.imagebox-image -->
+                        <div class="imagebox-content">
+                            <h5><a href="#" title="">{{ 'Audicoci Formation' }}</a></h5>
+                            <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                            <div class="more-link">
+                                <a href="{{ path('page_learning') }}" title="formations audicoci">{{ 'Voir toutes nos formations'|upper }}</a>
+                            </div>
+                        </div><!-- /.imagebox-content -->
+                    </div><!-- /.imagebox style2 -->
+                </div><!-- /.col-md-6 -->
+                <div class="col-md-6">
+                    <div class="wrap-event">
+                        <ul class="event-list">
+                            {% for i in 1..3 %}
+                                <li class="event-item">
+                                <div class="event-date float-left">
+                                    <div class="day">
+                                        0 {{ i }}
+                                    </div>
+                                    <div class="month">
+                                        DEC
+                                    </div>
+                                </div><!-- /.event-date -->
+                                <div class="event-info overflow">
+                                    <h6>
+                                        <a href="#" title="">{{ 'Nom de la formations' }}</a>
+                                    </h6>
+                                    <ul class="address">
+                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ 'Section de la formation' }}</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'heure de la formation' }}</li>
+                                    </ul>
+                                    <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                                </div><!-- /.event-info -->
+                                <div class="clearfix"></div>
+                            </li>
+                            {% endfor %}
+                        </ul><!-- /.event-list -->
+                    </div><!-- /.wrap-event -->
+                </div><!-- /.col-md-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-event -->
+    <!-- Actualités -->
+    <section class="flat-imagebox style6 background">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title">
+                        <h3 class="font-weight-3">{{ 'Actualités & conseil' }}</h3>
+                    </div><!-- /.flat-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel-14">
+                        {% for i in 1..12 %}
+                            <div class="imagebox style2 v6 border">
+                                <div class="imagebox-image">
+                                    <img src="images/page/box-7.jpg" alt="">
+                                </div><!-- /.imagebox-image -->
+                                <div class="imagebox-content">
+                                    <h5><a href="#" title="">{{ 'Titre actualité' }}</a></h5>
+                                    <ul>
+                                        <li class="date">Date 08.17.2017</li>
+                                        <li><a href="#" title="">Sections</a></li>
+                                    </ul>
+                                    <p>Don't be distracted by criticism. Remember the only taste of success some people have is when they take a bite out of you.</p>
+                                    <div class="more-link">
+                                        <a href="#" title="">{{ 'Lire l\'article'|upper }}</a>
+                                    </div>
+                                </div><!-- /.imagebox-content -->
+                            </div><!-- /.imagebox style2 v5 -->
+                        {% endfor %}
+                    </div><!-- /.owl-carousel-14 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-imagebox style6 -->
+    <!-- partenaires -->
+    <section class="flat-partner style1 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3>{{ 'ils nous font confiance'|upper }}</h3>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="owl-carousel">
+                        <li>
+                            <img src="images/partner/01.png" alt="">
+                        </li>
+                        <li>
+                            <img src="images/partner/02.png" alt="">
+                        </li>
+                        <li>
+                            <img src="images/partner/03.png" alt="">
+                        </li>
+                        <li>
+                            <img src="images/partner/04.png" alt="">
+                        </li>
+                        <li>
+                            <img src="images/partner/05.png" alt="">
+                        </li>
+                        <li>
+                            <img src="images/partner/06.png" alt="">
+                        </li>
+                    </ul><!-- /.owl-carousel -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-partner background -->
+    <!-- subscriber for Email -->
+    <section class="flat-subscibe-email parallax parallax15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-subscribe center">
+                        <div class="title">
+                            <h3 class="color-white">{{ 'Abonnez par Email' }}</h3>
+                        </div>
+                        <p class="sub-title">
+                            {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
+                        </p>
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                            <div id="subscribe-content">
+                                <div class="input-email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                </div>
+                                <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                        </form>
+                    </div><!-- /.wrap-subscribe -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay-black"></div>
+    </section><!-- /.flat-subscribe-email -->
+
+
+
 {% endblock %}
 {% block javascripts %}
-    {{ parent() }}
-    <!-- Revolution Slider 5.x SCRIPTS -->
-    <script src="{{ asset('build/global/js/revolution-slider/js/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('build/global/js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
-{% endblock %}
-{% block extensions %}
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.actions.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.migration.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/global/js/slide.js') }}"></script>
+  {{ parent() }}
+    <!-- Revolution Slider -->
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/slider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.actions.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.layeranimation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.migration.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/global/revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
 {% endblock %}

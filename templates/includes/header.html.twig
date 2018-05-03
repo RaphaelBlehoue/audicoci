@@ -1,96 +1,76 @@
-<!-- Header -->
-<header id="header" class="header modern-header modern-header-theme-colored2">
-    <div class="header-top bg-theme-colored2 sm-text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="widget text-white">
-                        <i class="fa fa-clock-o text-theme-colored"></i> {{ 'content Lorem pixeum' }}:  Lun - Ven : 8H00 - 18H00
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="widget">
-                        <ul class="list-inline text-right flip sm-text-center">
+<section class="header-top style2 bg-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="flat-infomation float-left">
+                    <li class="phone">
+                        <a href="#" title=""><i class="fa fa-tty" aria-hidden="true"></i> +225 22 43 57 38</a>
+                    </li>
+                </ul><!-- /.flat-infomation -->
+                <ul class="flat-social float-right">
+                    <li>
+                        <a href="" title="Facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" title="Twitter">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" title="Google Plus">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul><!-- /.flat-social -->
+                <div class="flat-sign-in float-right">
+                    {% if app.user %}
+                        <a href="#" title="">{{ 'Compte' }}</a>
+                        <ul class="unstyled box-shadow">
                             <li>
-                                <a class="text-white" href="#">{{ 'Aide' }}</a>
+                                <a href="{{ path('admin') }}" title="Accéder à l'admin">{{ 'Admin' }}</a>
                             </li>
-                            <li class="text-white">|</li>
                             <li>
-                                {% if app.user and app.user|length > 0 %}
-                                    <a class="text-white" href="{{ path('admin') }}">{{ 'Accédez à l\'admin' }}</a>
-                                {% else %}
-                                    <a class="text-white" href="{{ path('signin_page') }}">{{ 'Connexion' }}</a>
-                                {% endif %}
+                                <a href="{{ path('security_logout') }}" title="Se deconnecter">{{ 'Logout' }}</a>
                             </li>
                         </ul>
-                    </div>
+                    {% else %}
+                        <a href="{{ path('signin_page') }}" title="Se connecter">{{ 'Se connecter' }}</a>
+                    {% endif %}
+                </div><!-- /.flat-sign-in -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.header-top -->
+
+<section id="header" class="header style2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="logo" class="logo float-left">
+                    <a href="{{ path('index_page') }}" title="Audicoci Consusting">
+                        <img src="{{ asset('build/global/images/logo-audicoci.png') }}" alt="audicoci">
+                    </a>
+                </div><!-- /.logo -->
+                <div class="get-quote float-right">
+                    <a href="{{ path('page_contact') }}" title="Nous contacter">{{ 'nous contacter'|upper }}</a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-middle p-0 xs-text-center pb-30">
-        <div class="container pt-20 pb-20">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3">
-                    <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="{{ path('index_page') }}"><img src="{{ asset('build/global/images/logo-audicoci.png') }}" alt="{{'audicoci'}}"></a>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-9">
-                    <div class="header-widget-contact-info-box sm-text-center">
-                        <div class="media element contact-info">
-                            <div class="media-left">
-                                <a href="#">
-                                    <i class="fa fa-envelope text-theme-colored font-icon sm-display-block"></i>
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="mailto:info@audicoci.com?Subject=Bonjour%20Besoin%20d%20information" class="title">{{ 'Adresse Email' }}</a>
-                                <h5 class="media-heading subtitle">{{ 'info@audicoci.com ' }}</h5>
-                            </div>
-                        </div>
-                        <div class="media element contact-info">
-                            <div class="media-left">
-                                <a href="#">
-                                    <i class="fa fa-phone-square text-theme-colored font-icon sm-display-block"></i>
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#" class="title">{{ 'Appelez-nous pour plus de détail' }}</a>
-                                <h5 class="media-heading subtitle">{{ '+225 22 43 57 38' }}</h5>
-                            </div>
-                        </div>
-                        <div class="media element contact-info">
-                            <div class="media-left">
-                                <a href="#">
-                                    <i class="fa fa-building-o text-theme-colored font-icon sm-display-block"></i>
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <a href="#" class="title">{{ 'Localisation géographique'|capitalize }}</a>
-                                <h5 class="media-heading subtitle">{{ 'ABIDJAN COCODY RIVIERA II, Rue WOODOO, lot 139 Ilot 10, Bonoumin 2 Plateaux 08 BP 3781 ABIDJAN 08'|capitalize }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-nav">
-        <div class="header-nav-wrapper navbar-scrolltofixed">
-            <div class="container">
-                <nav id="menuzord" class="menuzord blue">
-                    <ul class="menuzord-menu">
-                        <li class="home active"><a href="#"><i class="fa fa-home font-28"></i></a></li>
-                        <li><a href="#home">{{ 'qui sommes nous'|capitalize }}</a></li>
-                        <li><a href="#home">{{ 'notre philosophie'|capitalize }}</a></li>
-                        <li><a href="#home">{{ 'nos services'|capitalize }}</a></li>
-                        <li><a href="#home">{{ 'nos formations'|capitalize }}</a></li>
-                        <li><a href="#home">{{ 'actualités'|capitalize }}</a></li>
-                    </ul>
-                    <div class="pull-right sm-pull-none mb-sm-15">
-                        <a class="btn btn-colored btn-flat btn-theme-colored mt-15 mr-15 ml-15" href="#"> <i class="ion-android-call"></i> {{ 'Nous contacter' }}</a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
+                <div class="nav-wrap">
+                    <div class="btn-menu">
+                        <span></span>
+                    </div><!-- //mobile menu button -->
+                    <div id="mainnav" class="mainnav">
+                        <ul class="menu">
+                            <li><a href="{{ path('page_philosophie') }}" title="Notre philosophie">{{ 'Notre philosophie' }}</a></li>
+                            <li><a href="{{ path('page_about') }}" title="Le Cabinet">{{ 'Le Cabinet' }}</a></li>
+                            <li><a href="{{ path('page_services') }}" title="Nos services">{{ 'Nos services' }}</a></li>
+                            <li><a href="{{ path('page_learning') }}" title="Nos formations">{{ 'Nos formations' }}</a></li>
+                            <li><a href="{{ path('page_blog') }}" title="Actualités">{{ 'Actualités' }}</a></li>
+                        </ul><!-- /.menu -->
+                    </div><!-- /.mainnav -->
+                </div><!-- /.nav-wrap -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section><!-- /.header -->
