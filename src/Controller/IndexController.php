@@ -15,10 +15,15 @@ class IndexController extends Controller
 {
     /**
      * @Route("/", name="index_page", methods="GET", schemes={"%secure_channel%"})
+     * @param CategoryRepository $categoryRepository
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(CategoryRepository $categoryRepository)
     {
-        return $this->render('index/index.html.twig');
+        $categories = $categoryRepository->findAll();
+        return $this->render('index/index.html.twig', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -51,7 +56,7 @@ class IndexController extends Controller
      * @param CategoryRepository $categoryRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function ServicePageGroups(Category $category, CategoryRepository $categoryRepository){
+    public function ServicePageGroups(Category $category, CategoryRepository $categoryRepository, $slug){
         return $this->render('pages/services_category.html.twig');
     }
 

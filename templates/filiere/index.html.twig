@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} {{ 'Filières' }} {% endblock %}
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des filières'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('filiere_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+            <div class="card-body">
+                <table class="table table-striped table-bordered" cellspacing="0" data-provide="datatables">
+                    <thead>
+                    <tr>
+                        <th>{{ 'Titre de la filière' }}</th>
+                        <th>{{ 'Date de creation système' }}</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>{{ 'Titre de la filière' }}</th>
+                        <th>{{ 'Date de creation système' }}</th>
+                        <th>actions</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for filiere in filieres %}
+                        <tr>
+                            <td>{{ filiere.name }}</td>
+                            <td>{{ filiere.created ? filiere.created|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>
+                                <a href="{{ path('filiere_show', {'id': filiere.id}) }}" class="btn btn-primary">{{ 'Afficher' }}</a>
+                                <a href="{{ path('filiere_edit', {'id': filiere.id}) }}" class="btn btn-danger">{{ 'Modifier' }}</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucune donnée disponible</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

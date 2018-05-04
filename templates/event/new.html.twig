@@ -1,0 +1,22 @@
+{% extends 'admin.html.twig' %}
+{% block title %} {{ 'Formation en cours' }} {% endblock %}
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér une formation en cours'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('event_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('event/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.3/classic/ckeditor.js"></script>
+    <script src="{{ asset('build/admin/js/ckedit.js') }}"></script>
+{% endblock %}

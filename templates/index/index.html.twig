@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="top-title center">
-                        <h3 class="top-post">{{ 'La philoshophie d\'audicoci'|upper }}</h3>
+                        <h3 class="top-post">{{ 'La philoshophie du cabinet audicoci'|upper }}</h3>
                         <p class="sub-title">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                         </p>
@@ -159,13 +159,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="call-actions style4 color-white center">
-                        <h4 class="color-white">{{ 'Vous avez besoins de nous ?' }}</h4>
+                    <div class="call-actions style3 color-white center">
+                        <h4 class="color-white">{{ 'Vous avez besoins de nous ?'|upper }}</h4>
                         <p class="sub-title">
                             Il y a plusieurs façons de nous contacter. Vous pouvez nous laisser un message par Email, nous téléphoner, choisissez ce qui vous convient le mieux.
                         </p>
                         <div class="btn-more">
-                            <a href="{{ path('page_contact') }}" title="Nous contacter audicoci">{{ 'Nous contacter'|upper }}</a>
+                            <a href="{{ path('page_contact') }}" title="Nous contacter audicoci" class="line-black base border-radius-25">{{ 'Nous contacter'|upper }}</a>
                         </div>
                     </div><!-- /.call-actions style3 -->
                 </div><!-- /.col-md-12 -->
@@ -180,28 +180,27 @@
                 <div class="col-md-12">
                     <div class="flat-title">
                         <h3 class="font-weight-7">{{ 'nos services'|upper }}</h3>
-                        <p class="sub-title">Our Experienced Guys At Yolo Always Giving Their Best To Make The Clients Happy!</p>
+                        <p class="sub-title">{{ 'Audicoci donnent toujours le meilleur pour rendre les clients heureux!' }}</p>
                     </div>
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row -->
             <div class="row">
-                {% for i in 1..12 %}
-                <div class="col-lg-4">
-                    <div class="iconbox center style1 v1 custom-padding">
-                        <div class="box-header">
-                            <div class="icon">
-                                <span class="ti-desktop font-size-36"></span>
-                                <span class="ti-desktop two font-size-36"></span>
-                            </div>
-                            <div class="box-title">
-                                <a href="#" title="">{{ 'service' ~ i }}</a>
-                            </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-content">
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        </div><!-- /.box-content -->
-                    </div><!-- /.iconbox style1 -->
-                </div><!-- /.col-lg-4 -->
+                {% for category in categories %}
+                    <div class="col-lg-4">
+                        <div class="iconbox center style1 v1 custom-padding">
+                            <div class="box-header">
+                                <div class="box-title">
+                                    <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="{{ category.name }}">{{ category.name|upper }}</a>
+                                </div>
+                            </div><!-- /.box-header -->
+                            <div class="box-content">
+                                <p>{{ category.content|truncate('200', '', '...')|raw }}</p>
+                                <div class="more-link">
+                                    <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="">{{ 'plus de détail'|upper }}</a>
+                                </div>
+                            </div><!-- /.box-content -->
+                        </div><!-- /.iconbox style1 -->
+                    </div><!-- /.col-lg-4 -->
                 {% endfor %}
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -222,11 +221,13 @@
                 <div class="col-md-6">
                     <div class="imagebox style2 border v7">
                         <div class="imagebox-image">
-                            <img src="images/page/box-26.jpg" alt="">
+                            <img src="{{ asset('build/global/images/home/form_1.jpg') }}" alt="">
                         </div><!-- /.imagebox-image -->
                         <div class="imagebox-content">
-                            <h5><a href="#" title="">{{ 'Audicoci Formation' }}</a></h5>
-                            <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
+                            <h5><a href="#" title="">{{ 'Audicoci Formation'|upper }}</a></h5>
+                            <p>
+                                La mission de Audicoci est de vous donner des formations assez pertinent pour vous permettre .... loremen
+                            </p>
                             <div class="more-link">
                                 <a href="{{ path('page_learning') }}" title="formations audicoci">{{ 'Voir toutes nos formations'|upper }}</a>
                             </div>

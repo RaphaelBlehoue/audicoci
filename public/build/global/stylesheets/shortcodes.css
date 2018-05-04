@@ -219,7 +219,7 @@
 	position: absolute;
 	height: 4px;
 	width: 60px;
-	background-color: #f06325;
+	background-color: #1490d7;
 	bottom: 0;
 	left: 50%;
 	margin-left: -30px;
@@ -9684,7 +9684,7 @@ ul.list-info.v1 {
 }
 
 .wrap-event ul.event-list > li .event-date {
-	color: #f06325;
+	color: #1490d7;
 	font-family: 'Poppins';
 	font-weight: bold;
 	line-height: 30px;

@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+ {% block title %} {{ 'Service Parent' }} {% endblock %}
+
+{% block body %}
+    <div class="col-6 col-md-offset-6">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Filière détail'|upper }}</h4>
+                {{ include('filiere/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>{{ 'Titre de la filière' }}</th>
+                        <td>{{ filiere.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Contenu Sommaires' }}</th>
+                        <td>{{ filiere.content }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'Date de création' }}</th>
+                        <td>{{ filiere.created ? filiere.created|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-label btn-dark" href="{{ path('filiere_index') }}">
+                    <label><i class="ti-arrow-left"></i></label>
+                    {{ 'Retour à la liste'}}
+                </a>
+                <a class="btn btn-label btn-danger" href="{{ path('filiere_edit', {'id': filiere.id}) }}">
+                    <label><i class="ti-pencil-alt"></i></label>
+                    {{ 'Modifier' }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

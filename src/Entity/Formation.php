@@ -35,6 +35,12 @@ class Formation
      */
     protected $smallContent;
 
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Filiere", inversedBy="formations")
+     * @Assert\NotNull(message="Faite le choix d'une filiere avant de continuer")
+     */
+    protected $filiere;
 
 
     public function getId()
@@ -74,6 +80,18 @@ class Formation
     public function setSmallContent(?string $smallContent): self
     {
         $this->smallContent = $smallContent;
+
+        return $this;
+    }
+
+    public function getFiliere(): ?Filiere
+    {
+        return $this->filiere;
+    }
+
+    public function setFiliere(?Filiere $filiere): self
+    {
+        $this->filiere = $filiere;
 
         return $this;
     }
