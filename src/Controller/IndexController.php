@@ -58,10 +58,17 @@ class IndexController extends Controller
 
     /**
      * @Route("/about_us", name="page_about", methods="GET", schemes={"%secure_channel%"})
+     * @param PartnerRepository $partnerRepository
+     * @param PostRepository $postRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function aboutsUs(){
-        return $this->render('pages/abouts_us.html.twig');
+    public function aboutsUs(PartnerRepository $partnerRepository, PostRepository $postRepository){
+        $partners = $partnerRepository->findAll();
+        $posts = $postRepository->getPostLimited(10);
+        return $this->render('pages/abouts_us.html.twig',[
+            'posts'      => $posts,
+            'partners' => $partners
+        ]);
     }
 
     /**

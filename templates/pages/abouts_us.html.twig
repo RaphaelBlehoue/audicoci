@@ -1,7 +1,166 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Qui sommes nous' }}{% endblock %}
 {% block body %}
-    <h1>Page Abouts Us</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Qui sommes nous' }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="{{ 'Audicoci' }}">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_about') }}" title="{{ 'Qui sommes nous' }}"> {{ 'Qui sommes nous' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <!-- Qui sommes nous -->
+    <section class="flat-about style3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h2>{{ 'Qui sommes nous'|upper }}</h2>
+                        <p class="sub-title">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        </p>
+                    </div><!-- /.top-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-about style1">
+                        <ul class="tab-list-about">
+                            <li class="active">{{ 'Qui Sommes Nous'|upper }}</li>
+                            <li>{{ 'Que faisons nous'|upper }}</li>
+                            <li>{{ 'Notre devise'|upper }}</li>
+                        </ul><!-- /.tab-list style1 -->
+                        <div class="content-tab">
+                            <div class="content-inner">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5 box-shadow" src="{{ asset('build/global/images/home/about_1.jpg') }}" alt="{{ 'Qui sommes nous' }}">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Qui sommes nous ?'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                        </div><!-- /.text-content -->
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="content-inner overflow">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5" src="{{ asset('build/global/images/home/about_2.jpg') }}" alt="Que faisons nous">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Que faisons nous'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                        </div>
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                            </div>
+                            <div class="content-inner overflow">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5" src="{{ asset('build/global/images/home/about_3.jpg') }}" alt="Notre devise">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <h4>{{ 'Notre devise'|upper }}</h4>
+                                        <div class="text-content">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                                        </div>
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                            </div>
+                        </div><!-- /.content-tab -->
+                    </div><!-- /.tab-about style1 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <!-- Actualités -->
+    <section class="flat-imagebox style6 background">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title">
+                        <h3 class="font-weight-3">{{ 'Actualités & conseil' }}</h3>
+                    </div><!-- /.flat-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel-14">
+                        {% for post in posts %}
+                            <div class="imagebox style2 v6 border">
+                                <div class="imagebox-image">
+                                    <img src="{{ post.assertPath|imagine_filter('thumb_medium') }}" alt="{{ post.title }}">
+                                </div><!-- /.imagebox-image -->
+                                <div class="imagebox-content">
+                                    <h5><a href="{{ path('page_blog_detail', {'slug': post.slug }) }}" title="{{ post.title }}">{{ post.title|truncate(20, null, '...') }}</a></h5>
+                                    <ul>
+                                        <li class="date">{{ post.created|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y")  }}</li>
+                                        <li><a href="#" title="">{{ post.subject.title }}</a></li>
+                                    </ul>
+                                    <p>{{ post.content|raw|truncate(120, null, '...') }}</p>
+                                    <div class="more-link">
+                                        <a href="{{ path('page_blog_detail', {'slug': post.slug }) }}" title="{{ post.title }}">{{ 'Lire l\'article'|upper }}</a>
+                                    </div>
+                                </div><!-- /.imagebox-content -->
+                            </div><!-- /.imagebox style2 v5 -->
+                        {% endfor %}
+                    </div><!-- /.owl-carousel-14 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-imagebox style6 -->
+    <section class="flat-partner flat-testimonial style3 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h3>{{ 'ils nous font confiance'|upper }}</h3>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="owl-carousel">
+                        {% for partner in partners %}
+                            <li>
+                                <img src="{{ partner.assertPath|imagine_filter('thumb_partner') }}" alt="">
+                            </li>
+                        {% endfor %}
+                    </ul><!-- /.owl-carousel -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-partner background -->
 {% endblock %}
 
 
