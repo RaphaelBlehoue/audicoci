@@ -15,3 +15,13 @@ liip_imagine:
                     size:          [369, 220]
                     mode:          outbound
                     allow_upscale: true
+        thumb_partner:
+            jpeg_quality:          95
+            png_compression_level: 8
+            filters:
+                auto_rotate: ~
+                strip: ~
+                thumbnail:
+                    size:          [120, 120]
+                    mode:          outbound
+                    allow_upscale: true

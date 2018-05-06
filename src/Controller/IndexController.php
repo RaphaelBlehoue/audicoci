@@ -7,6 +7,7 @@ use App\Entity\Event;
 use App\Entity\Formation;
 use App\Entity\Section;
 use App\Repository\CategoryRepository;
+use App\Repository\PartnerRepository;
 use App\Repository\PostRepository;
 use App\Repository\EventRepository;
 use App\Repository\FormationRepository;
@@ -21,22 +22,25 @@ class IndexController extends Controller
      * @param CategoryRepository $categoryRepository
      * @param EventRepository $eventRepository
      * @param PostRepository $postRepository
+     * @param PartnerRepository $partnerRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(
         CategoryRepository $categoryRepository,
         EventRepository $eventRepository,
-        PostRepository $postRepository
+        PostRepository $postRepository,
+        PartnerRepository $partnerRepository
     )
     {
         $categories = $categoryRepository->findAll();
         $events = $eventRepository->getValidEventLimited(3, new \DateTime('now'));
         $posts = $postRepository->getPostLimited(10);
-        dump($posts);
+        $partners = $partnerRepository->findAll();
         return $this->render('index/index.html.twig', [
             'categories' => $categories,
             'events'     => $events,
-            'posts'      => $posts
+            'posts'      => $posts,
+            'partners'   => $partners
         ]);
     }
 

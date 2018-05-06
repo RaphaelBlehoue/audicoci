@@ -317,24 +317,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="owl-carousel">
-                        <li>
-                            <img src="images/partner/01.png" alt="">
-                        </li>
-                        <li>
-                            <img src="images/partner/02.png" alt="">
-                        </li>
-                        <li>
-                            <img src="images/partner/03.png" alt="">
-                        </li>
-                        <li>
-                            <img src="images/partner/04.png" alt="">
-                        </li>
-                        <li>
-                            <img src="images/partner/05.png" alt="">
-                        </li>
-                        <li>
-                            <img src="images/partner/06.png" alt="">
-                        </li>
+                        {% for partner in partners %}
+                            <li>
+                                <img src="{{ partner.assertPath|imagine_filter('thumb_partner') }}" alt="">
+                            </li>
+                        {% endfor %}
                     </ul><!-- /.owl-carousel -->
                 </div><!-- /.col-md-12 -->
             </div><!-- /.row -->

@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} {{ 'Partenaires' }} {% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Modifier partenaire'|upper }}</h4>
+                {{ include('partner/_delete_form.html.twig') }}
+            </header>
+            <div class="card-body center-vh">
+                {{ include('partner/_form.html.twig', {
+                    'button_label': 'Mise à jour', 'button_class': 'btn-danger'
+                })
+                }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} {{ 'Partenaires' }} {% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Liste des partenaires'|upper }}</h4>
+                <a class="btn btn-label btn-info" href="{{ path('partner_new') }}">
+                    <label><i class="ti-plus"></i></label>
+                    {{ 'Ajouter un nouveau'}}
+                </a>
+            </header>
+        </div>
+    </div>
+    {% for partner in partners %}
+        <div class="col-lg-4">
+            <div class="card">
+                <h4 class="card-title"><strong>{{ partner.name|upper }}</strong></h4>
+                <div class="card-body">
+                    <figure class="teaser teaser-terry">
+                        <img src="{{ asset(partner.assertPath|imagine_filter('thumb_partner')) }}" alt="{{ partner.name }}">
+                        <figcaption>
+                            <h3><span>{{ partner.name }}</span></h3>
+                            <p>
+                                <a href="{{ path('partner_edit', {'id': partner.id}) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                <a href="{{ path('partner_show', {'id': partner.id}) }}"><i class="fa fa-fw fa-eye"></i></a>
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="center">
+            <h2>Aucune information trouvée</h2>
+        </div>
+    {% endfor %}
+{% endblock %}

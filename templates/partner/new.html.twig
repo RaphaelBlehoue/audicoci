@@ -1,0 +1,19 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} {{ 'Partenaires' }} {% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title">{{ 'Creér un nouveau  partenaire'|upper }}</h4>
+                <a class="btn btn-square btn-outline-danger" href="{{ path('partner_index') }}">
+                    <label><i class="ti-na"></i></label>
+                </a>
+            </header>
+            <div class="card-body center-vh">
+                {{ include('partner/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

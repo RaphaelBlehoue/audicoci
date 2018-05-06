@@ -15,3 +15,10 @@ vich_uploader:
             delete_on_update: true
             delete_on_remove: true
             namer: vich_uploader.namer_uniqid
+        partner_image:
+            uri_prefix: /images/partner
+            upload_destination: '%kernel.project_dir%/public/images/partner'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+            namer: vich_uploader.namer_uniqid
