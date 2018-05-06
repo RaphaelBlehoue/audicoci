@@ -34,9 +34,7 @@ class Post
      *     maxSize="3M",
      *     mimeTypes={"image/png", "image/jpeg", "image/jpg"}
      * )
-     * @Assert\NotNull(message="Veuillez uploader une images")
      * @Vich\UploadableField(mapping="post_image", fileNameProperty="imageName", size="imageSize")
-     * 
      * @var File $imageFile
      */
     protected $imageFile;
@@ -84,6 +82,12 @@ class Post
      * @ORM\OneToMany(targetEntity="App\Entity\Media", mappedBy="post")
      */
     protected $medias;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="App\Entity\Subject", inversedBy="posts")
+     */
+    protected $subject;
 
 
     public function __construct()
@@ -248,6 +252,18 @@ class Post
                 $media->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSubject(): ?Subject
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?Subject $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }

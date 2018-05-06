@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Post;
+use App\Entity\Subject;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,6 +17,13 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('subject', EntityType::class, [
+                'class' => Subject::class,
+                'choice_label' => 'title',
+                'label' => 'Choix de la Catégorie',
+                'required' => true,
+                'attr' => ['placeholder' => 'Choix de la Catégorie', 'class' => 'col-md-6']
+            ])
             ->add('title', TextType::class, [
                 'label' => 'Titre de l\'actualité',
                 'attr' => ['placeholder' => 'Entrez le titre ici']

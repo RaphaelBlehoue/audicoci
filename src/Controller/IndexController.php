@@ -25,7 +25,6 @@ class IndexController extends Controller
     {
         $categories = $categoryRepository->findAll();
         $events = $eventRepository->getValidEventLimited(3, new \DateTime('now'));
-        dump($events);
         return $this->render('index/index.html.twig', [
             'categories' => $categories,
             'events'     => $events
