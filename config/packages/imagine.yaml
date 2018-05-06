@@ -11,7 +11,7 @@ liip_imagine:
             filters:
                 auto_rotate: ~
                 strip: ~
-                blog_thumb:
+                thumbnail:
                     size:          [369, 220]
                     mode:          outbound
                     allow_upscale: true
