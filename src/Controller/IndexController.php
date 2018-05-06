@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Event;
 use App\Entity\Formation;
 use App\Entity\Section;
 use App\Repository\CategoryRepository;
+use App\Repository\EventRepository;
 use App\Repository\FormationRepository;
 use App\Repository\SectionRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,13 +18,17 @@ class IndexController extends Controller
     /**
      * @Route("/", name="index_page", methods="GET", schemes={"%secure_channel%"})
      * @param CategoryRepository $categoryRepository
+     * @param EventRepository $eventRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(CategoryRepository $categoryRepository)
+    public function index(CategoryRepository $categoryRepository, EventRepository $eventRepository)
     {
         $categories = $categoryRepository->findAll();
+        $events = $eventRepository->getValidEventLimited(3, new \DateTime('now'));
+        dump($events);
         return $this->render('index/index.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'events'     => $events
         ]);
     }
 
@@ -86,6 +92,16 @@ class IndexController extends Controller
      */
     public function learningPageDetail(Formation $formation, FormationRepository $formationRepository){
         return $this->render('pages/learning_detail.html.twig');
+    }
+
+    /**
+     * @Route("/event/{slug}", name="page_event_detail", methods="GET", schemes={"%secure_channel%"})
+     * @param Event $event
+     * @param EventRepository $eventRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function eventPageDetail(Event $event, EventRepository $eventRepository){
+        return $this->render('pages/event_detail.html.twig');
     }
 
     /**

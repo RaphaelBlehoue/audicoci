@@ -37,8 +37,8 @@
                         <tr>
                             <td>{{ event.name }}</td>
                             <td>{{ event.lieu}}</td>
-                            <td>{{ event.dateAt ? event.dateAt|date('Y-m-d') : '' }}</td>
-                            <td>{{ event.times|date("h:m", "Africa/Abidjan") }}</td>
+                            <td>{{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y") : '' }}</td>
+                            <td>{{ event.times|localizeddate('none', 'none', 'fr_FR', null, "kk:mm zzzz") }}</td>
                             <td>{{ event.filiere.name }}</td>
                             <td>
                                 <a href="{{ path('event_show', {'id': event.id}) }}" class="btn btn-primary">{{ 'Afficher' }}</a>

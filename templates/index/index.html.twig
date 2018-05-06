@@ -237,28 +237,30 @@
                 <div class="col-md-6">
                     <div class="wrap-event">
                         <ul class="event-list">
-                            {% for i in 1..3 %}
+                            {% for event in events %}
                                 <li class="event-item">
-                                <div class="event-date float-left">
-                                    <div class="day">
-                                        0 {{ i }}
-                                    </div>
-                                    <div class="month">
-                                        DEC
-                                    </div>
-                                </div><!-- /.event-date -->
-                                <div class="event-info overflow">
-                                    <h6>
-                                        <a href="#" title="">{{ 'Nom de la formations' }}</a>
-                                    </h6>
-                                    <ul class="address">
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ 'Section de la formation' }}</li>
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ 'heure de la formation' }}</li>
-                                    </ul>
-                                    <p>Don't be distracted by criticism. Remember the only taste of success some people.</p>
-                                </div><!-- /.event-info -->
-                                <div class="clearfix"></div>
-                            </li>
+                                    <div class="event-date float-left">
+                                        <div class="day">
+                                            {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "d") : '' }}
+                                        </div>
+                                        <div class="month">
+                                            {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "LLL") : '' }}
+                                        </div>
+                                    </div><!-- /.event-date -->
+                                    <div class="event-info overflow">
+                                        <h6>
+                                            <a href="{{ path('page_event_detail', {'slug': event.slug }) }}" title="{{ event.name }}">{{ event.name|capitalize }}</a>
+                                        </h6>
+                                        <ul class="address">
+                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.filiere.name }}</li>
+                                            <li><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                {{ event.times|localizeddate('none', 'none', 'fr_FR', null, "kk:mm zzzz") }}
+                                            </li>
+                                        </ul>
+                                        <p>{{ event.content|raw|truncate('100',null,'...') }}</p>
+                                    </div><!-- /.event-info -->
+                                    <div class="clearfix"></div>
+                                </li>
                             {% endfor %}
                         </ul><!-- /.event-list -->
                     </div><!-- /.wrap-event -->

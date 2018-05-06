@@ -14,15 +14,15 @@
                     <tbody>
                     <tr>
                         <th>{{ 'Titre de la formation' }}</th>
-                        <td>{{ event.name }}</td>
+                        <td>{{ event.name|capitalize }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'Date de la formation' }}</th>
-                        <td><span class="badge badge-dark">{{ event.dateAt ? event.dateAt|date('Y-m-d') : '' }}</span></td>
+                        <td><span class="badge badge-dark">{{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "cccc, d MMMM Y") : '' }}</span></td>
                     </tr>
                     <tr>
                         <th>{{ 'Heure de la formation' }}</th>
-                        <td><span class="badge badge-danger">{{ event.times|date("h:m", "Africa/Abidjan") }}</span></td>
+                        <td><span class="badge badge-danger">{{ event.times|localizeddate('none', 'none', 'fr_FR', null, "kk:mm zzzz") }}</span></td>
                     </tr>
                     <tr>
                         <th>Lieu</th>

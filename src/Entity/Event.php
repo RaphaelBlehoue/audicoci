@@ -38,7 +38,7 @@ class Event
     protected $slug;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      * @Assert\NotNull(message="Entrez la date pour continuer")
      */
     protected $dateAt;
@@ -103,18 +103,6 @@ class Event
         return $this;
     }
 
-    public function getDateAt(): ?\DateTimeInterface
-    {
-        return $this->dateAt;
-    }
-
-    public function setDateAt(?\DateTimeInterface $date): self
-    {
-        $this->dateAt = $date;
-
-        return $this;
-    }
-    
     public function getLieu(): ?string
     {
         return $this->lieu;
@@ -135,6 +123,18 @@ class Event
     public function setFiliere(?Filiere $filiere): self
     {
         $this->filiere = $filiere;
+
+        return $this;
+    }
+
+    public function getDateAt(): ?\DateTimeInterface
+    {
+        return $this->dateAt;
+    }
+
+    public function setDateAt(?\DateTimeInterface $dateAt): self
+    {
+        $this->dateAt = $dateAt;
 
         return $this;
     }

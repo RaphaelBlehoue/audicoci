@@ -19,6 +19,20 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    public function getValidEventLimited($int, \DateTime $now)
+    {
+        return $this->createQueryBuilder('e')
+            ->leftJoin('e.filiere', 'f')
+            ->addSelect('f')
+            ->where('e.dateAt > :now')
+            ->orderBy('e.dateAt', 'DESC')
+            ->setParameter('now', $now)
+            ->setMaxResults($int)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 //    /**
 //     * @return Event[] Returns an array of Event objects
 //     */
