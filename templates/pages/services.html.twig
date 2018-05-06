@@ -1,7 +1,76 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Nos services' }}{% endblock %}
 {% block body %}
-    <h1>Page Catégories des services</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Nos services' }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="{{ 'Audicoci' }}">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_services') }}" title="{{ 'Nos services' }}"> {{ 'Nos services' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <section class="flat-iconbox style3">
+        <div class="container">
+            <div class="row">
+                {% for category in categories %}
+                <div class="col-md-4">
+                    <div class="iconbox center box-shadow border">
+                        <div class="box-header">
+                            <div class="box-title">
+                                <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="{{ category.name }}">{{ category.name|capitalize }}</a>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p>{{ category.content|truncate('200', '', '...')|raw }}</p>
+                            <div class="more-link">
+                                <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="">{{ 'plus de détail'|upper }}</a>
+                            </div>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox -->
+                </div><!-- /.col-md-4 -->
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-iconbox -->
+    <div class="divider30"></div>
+    <section class="flat-subscibe-email parallax parallax15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-subscribe center">
+                        <div class="title">
+                            <h3 class="color-white">{{ 'Abonnez par Email' }}</h3>
+                        </div>
+                        <p class="sub-title">
+                            {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
+                        </p>
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                            <div id="subscribe-content">
+                                <div class="input-email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                </div>
+                                <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                        </form>
+                    </div><!-- /.wrap-subscribe -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay-black"></div>
+    </section><!-- /.flat-subscribe-email -->
 {% endblock %}
-
-

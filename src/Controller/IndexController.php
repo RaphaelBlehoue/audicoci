@@ -73,10 +73,14 @@ class IndexController extends Controller
 
     /**
      * @Route("/our_services", name="page_services", methods="GET", schemes={"%secure_channel%"})
+     * @param CategoryRepository $categoryRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function ServicePage(){
-        return $this->render('pages/services.html.twig');
+    public function ServicePage(CategoryRepository $categoryRepository){
+        $categories = $categoryRepository->findAll();
+        return $this->render('pages/services.html.twig',[
+            'categories' => $categories
+        ]);
     }
 
     /**
