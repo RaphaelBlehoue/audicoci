@@ -1,5 +1,103 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Notre Philosophie' }}{% endblock %}
 {% block body %}
-    <h1>Page Philosophie</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Notre philosophie' }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_philosophie') }}" title="{{ 'Notre philosophie' }}">{{ 'Notre philosophie' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <div class="divider100"></div>
+    <section class="flat-info-box style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h2>{{ 'La philoshophie du cabinet audicoci'|upper }}</h2>
+                        <p class="sub-title">
+                            We are here to Acelerate your business and help you find the way. Our creative specialists work on an international level at branding, design and development. Both online and offline.
+                        </p>
+                    </div><!-- /.flat-title -->
+                    <div class="row-box">
+                        <div class="one-half info-box style1 info-image no-padding">
+                            <img src="{{ asset('build/global/images/home/philo_1.jpg') }}" alt="{{ 'A Qui Nous Adressons Nous' }}">
+                        </div>
+                        <div class="one-half info-box style1 info-text">
+                            <h3 class="font-weight-3">{{ 'A Qui Nous Adressons Nous ?' }}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
+                        </div><!-- /.info-box-->
+                        <div class="clearfix"></div>
+                    </div><!-- /.row-box -->
+                    <div class="divider100"></div>
+                    <div class="row-box">
+                        <div class="one-half info-box style1 info-text">
+                            <div class="divider17"></div>
+                            <h3 class="font-weight-3">{{ 'Qu\'est Qui Nous Animes' }}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor dunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                        </div>
+                        <div class="one-half info-box style1 info-image no-padding">
+                            <img src="{{ asset('build/global/images/home/philo_2.jpg') }}" alt="{{ 'Qu\'est Qui Nous Animes' }}">
+                        </div><!-- /.info-box-->
+                        <div class="clearfix"></div>
+                    </div><!-- /.row-box -->
+                    <div class="divider100"></div>
+                    <div class="row-box">
+                        <div class="one-half info-box style1 info-image no-padding">
+                            <img src="{{ asset('build/global/images/home/philo_3.jpg') }}" alt="{{ 'Notre Approche Conseil' }}">
+                        </div><!-- /.info-box-->
+                        <div class="one-half info-box style1 info-text">
+                            <div class="divider17"></div>
+                            <h3 class="font-weight-3">{{ 'Notre Approche Conseil' }}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor dunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div><!-- /.row-box -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-info-box -->
+    <div class="clearfix"></div>
+    <div class="divider100"></div>
+    <section class="flat-partner flat-testimonial style3 background">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h3>{{ 'ils nous font confiance'|upper }}</h3>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="owl-carousel">
+                        {% for partner in partners %}
+                            <li>
+                                <img src="{{ partner.assertPath|imagine_filter('thumb_partner') }}" alt="">
+                            </li>
+                        {% endfor %}
+                    </ul><!-- /.owl-carousel -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-partner background -->
 {% endblock %}

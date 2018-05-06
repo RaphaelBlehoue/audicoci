@@ -46,10 +46,14 @@ class IndexController extends Controller
 
     /**
      * @Route("/notre-philosophie", name="page_philosophie", methods="GET", schemes={"%secure_channel%"})
+     * @param PartnerRepository $partnerRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function pagephilosophie(){
-        return $this->render('pages/philosophie.html.twig');
+    public function pagephilosophie(PartnerRepository $partnerRepository){
+        $partners = $partnerRepository->findAll();
+        return $this->render('pages/philosophie.html.twig',[
+            'partners' => $partners
+        ]);
     }
 
     /**
