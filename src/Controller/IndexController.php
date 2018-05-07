@@ -130,13 +130,17 @@ class IndexController extends Controller
     /**
      * @Route("/our_learning/page/{slug}", name="page_learning_group", methods="GET", schemes={"%secure_channel%"})
      * @param Filiere $filiere
-     * @param FiliereRepository $filiereRepository
-     * @param $slug
+     * @param FormationRepository $formationRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function learningPageGroups(Filiere $filiere, FiliereRepository $filiereRepository){
-        dump($filiere);
-        return $this->render('pages/learning_filiere.html.twig');
+    public function learningPageGroups(Filiere $filiere, FormationRepository $formationRepository){
+        $formations = $formationRepository->findBy([
+            'filiere' => $filiere
+        ]);
+        return $this->render('pages/learning_filiere.html.twig',[
+            'filiere' => $filiere,
+            'formations' => $formations
+        ]);
     }
 
     /**

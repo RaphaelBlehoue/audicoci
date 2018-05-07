@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints AS Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FormationRepository")
@@ -34,6 +35,12 @@ class Formation
      * @Assert\NotNull(message="Veuillez entrez le sommaire de la formation")
      */
     protected $smallContent;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Gedmo\Slug(fields={"title", "id"}, separator="_", updatable=false)
+     */
+    protected $slug;
 
     /**
      * @var
@@ -80,6 +87,18 @@ class Formation
     public function setSmallContent(?string $smallContent): self
     {
         $this->smallContent = $smallContent;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

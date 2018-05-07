@@ -74,7 +74,7 @@ class FormationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('formation_edit', ['id' => $formation->getId()]);
+            return $this->redirectToRoute('formation_index');
         }
 
         return $this->render('formation/edit.html.twig', [

@@ -1,6 +1,77 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Nos formations' }}{% endblock %}
 {% block body %}
-    <p>formation groupe page</p>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ filiere.name|upper }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_learning') }}" title="{{ 'Formation' }}">{{ 'Formation' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_learning_group', {'slug': filiere.slug}) }}" title="{{ filiere.name }}">{{ filiere.name }}</a></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <div class="divider30"></div>
+    <section class="flat-info-box style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h2>{{ 'Pourquoi'|upper}} {{ filiere.name |upper }}</h2>
+                        <p class="sub-title">
+                            {{ filiere.content|raw }}
+                        </p>
+                    </div><!-- /.flat-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-info-box -->
+    <div class="divider50"></div>
+    <section class="flat-course parallax parallax13">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3 class="color-white">{{ 'Formation en '~ filiere.name|upper }}</h3>
+                    </div><!-- /.flat-title style3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                {% for formation in formations %}
+                    <div class="col-md-4 pb-5">
+                        <div class="imagebox style4">
+                            <div class="imagebox-content center">
+                                <div class="name-course pb-10">
+                                    <h6><a href="{{ path('page_learning_detail', {'slug': formation.slug}) }}" title="{{ formation.title }}">{{ formation.title|upper }}</a></h6>
+                                </div>
+                                <div class="name-course pb-10">
+                                    <span>{{ formation.content|raw|truncate(120, null, '...') }}</span>
+                                </div>
+                            </div><!-- /.imagebox-content -->
+                            <div class="imagebox-bottom">
+                                <p>&nbsp;</p>
+                                <div class="read-more center">
+                                    <a href="{{ path('page_learning_detail', { 'slug': formation.slug }) }}" title="{{ formation.title }}">{{ 'Decouvrir'|upper }}</a>
+                                </div>
+                            </div><!-- /.imagebox-bottom -->
+                        </div><!-- /.imagebox style4 -->
+                    </div>
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-course -->
 {% endblock %}
 

@@ -154,13 +154,13 @@ class Filiere
      */
     public function getEvent(): Collection
     {
-        return $this->event;
+        return $this->events;
     }
 
     public function addEvent(Event $event): self
     {
-        if (!$this->event->contains($event)) {
-            $this->event[] = $event;
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
             $event->setFiliere($this);
         }
 
@@ -169,8 +169,8 @@ class Filiere
 
     public function removeEvent(Event $event): self
     {
-        if ($this->event->contains($event)) {
-            $this->event->removeElement($event);
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
             // set the owning side to null (unless already changed)
             if ($event->getFiliere() === $this) {
                 $event->setFiliere(null);
