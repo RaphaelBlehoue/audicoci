@@ -154,10 +154,14 @@ class IndexController extends Controller
 
     /**
      * @Route("/blog", name="page_blog", methods="GET", schemes={"%secure_channel%"})
+     * @param PostRepository $postRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function BlogPage(){
-        return $this->render('pages/blog.html.twig');
+    public function BlogPage(PostRepository $postRepository){
+        $posts = $postRepository->getPostLimited(30);
+        return $this->render('pages/blog.html.twig',[
+            'posts'=> $posts
+        ]);
     }
 
     /**
