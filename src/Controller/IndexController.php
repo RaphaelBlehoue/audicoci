@@ -86,13 +86,18 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route("/our_services/page/{id}/{slug}/detail", name="page_services_group", methods="GET", schemes={"%secure_channel%"})
+     * @Route("/our_services/page/{slug}/detail", name="page_services_group", methods="GET", schemes={"%secure_channel%"})
      * @param Category $category
-     * @param CategoryRepository $categoryRepository
+     * @param SectionRepository $sectionRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function ServicePageGroups(Category $category, CategoryRepository $categoryRepository, $slug){
-        return $this->render('pages/services_category.html.twig');
+    public function ServicePageGroups(Category $category, SectionRepository $sectionRepository){
+        $sections = $sectionRepository->findByCategoryFieldId($category);
+        dump($sections);
+        return $this->render('pages/services_category.html.twig',[
+            'sections' => $sections,
+            'category' => $category
+        ]);
     }
 
     /**
@@ -102,7 +107,10 @@ class IndexController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function ServicePageDetail(Section $section, SectionRepository $sectionRepository){
-        return $this->render('pages/services_detail.html.twig');
+        $sectionRepository->find($section);
+        return $this->render('pages/services_detail.html.twig',[
+            'section' => $section
+        ]);
     }
 
     /**

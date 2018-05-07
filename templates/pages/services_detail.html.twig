@@ -1,6 +1,97 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ 'Audicoci | Nos services' }}{% endblock %}
+{% block title %}{{ 'Audicoci |' ~ section.title }}{% endblock %}
 {% block body %}
-    <h1>page détail du services this</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ section.category.name|capitalize }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_services') }}" title="{{ 'Nos services' }}">{{ 'Nos services' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_services_group', {'slug': section.category.slug }) }}" title="{{  section.category.name }}">{{  section.category.name|capitalize }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_services_detail', {'slug': section.title }) }}" title="{{ section.title }}">{{ section.title|capitalize }}</a></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <div class="divider30"></div>
+    <section class="flat-info-box style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h2>{{ section.title|upper }}</h2>
+                        <p class="sub-title">
+                            {{ section.smallContent|raw }}
+                        </p>
+                    </div><!-- /.flat-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-info-box -->
+    <section class="flat-tabs style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-about style2 v1">
+                        <div class="content-tab">
+                            <div class="content-inner overflow">
+                                <div class="one-half">
+                                    <div class="image-tabs">
+                                        <img class="border-radius-5" src="{{ section.assertPath|imagine_filter('thumb_service') }}" alt="{{ section.title }}">
+                                    </div>
+                                </div><!-- /.one-half -->
+                                <div class="one-half">
+                                    <div class="text-tabs">
+                                        <div class="text-content">
+                                            <p class="text-justify">{{ section.content|raw }}</p>
+                                        </div>
+                                    </div><!-- /.text-tabs -->
+                                </div><!-- /.one-half -->
+                            </div><!-- /.content-inner -->
+                        </div><!-- /.content-tab -->
+                    </div><!-- /.tab-about style1 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-tabs style1 -->
+    <div class="divider24"></div>
+    <section class="flat-subscibe-email parallax parallax15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-subscribe center">
+                        <div class="title">
+                            <h3 class="color-white">{{ 'Abonnez par Email' }}</h3>
+                        </div>
+                        <p class="sub-title">
+                            {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
+                        </p>
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                            <div id="subscribe-content">
+                                <div class="input-email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                </div>
+                                <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                        </form>
+                    </div><!-- /.wrap-subscribe -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay-black"></div>
+    </section><!-- /.flat-subscribe-email -->
 {% endblock %}
 

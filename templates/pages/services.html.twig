@@ -31,13 +31,13 @@
                     <div class="iconbox center box-shadow border">
                         <div class="box-header">
                             <div class="box-title">
-                                <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="{{ category.name }}">{{ category.name|capitalize }}</a>
+                                <a href="{{ path('page_services_group', {'slug': category.slug }) }}" title="{{ category.name }}">{{ category.name|capitalize }}</a>
                             </div>
                         </div><!-- /.box-header -->
                         <div class="box-content">
                             <p>{{ category.content|truncate('200', '', '...')|raw }}</p>
                             <div class="more-link">
-                                <a href="{{ path('page_services_group', {'id': category.id, 'slug': category.slug }) }}" title="">{{ 'plus de détail'|upper }}</a>
+                                <a href="{{ path('page_services_group', {'slug': category.slug }) }}" title="">{{ 'plus de détail'|upper }}</a>
                             </div>
                         </div><!-- /.box-content -->
                     </div><!-- /.iconbox -->

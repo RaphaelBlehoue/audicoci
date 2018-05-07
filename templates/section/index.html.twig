@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                             <th>{{ 'Titre' }}</th>
+                            <th>{{ 'Service parent' }}</th>
                             <th>{{ 'Date de creation' }}</th>
                             <th>actions</th>
                         </tr>
@@ -23,6 +24,7 @@
                     <tfoot>
                         <tr>
                             <th>{{ 'Titre' }}</th>
+                            <th>{{ 'Service parent' }}</th>
                             <th>{{ 'Date de creation' }}</th>
                             <th>actions</th>
                         </tr>
@@ -31,6 +33,7 @@
                     {% for section in sections %}
                         <tr>
                             <td>{{ section.title }}</td>
+                            <td>{{ section.category.name }}</td>
                             <td>{{ section.created ? section.created|date('Y-m-d H:i:s') : '' }}</td>
                             <td>
                                 <a href="{{ path('section_show', {'id': section.id}) }}" class="btn btn-primary">{{ 'Afficher' }}</a>
