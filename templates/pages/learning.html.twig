@@ -1,5 +1,144 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Nos formations' }}{% endblock %}
 {% block body %}
-    <h1>Learning Page</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Formations' }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_learning') }}" title="{{ 'Formation' }}">{{ 'Formation' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <div class="divider30"></div>
+    <section class="flat-info-box style1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title padding">
+                        <h2>{{ 'Pourquoi nous vous formons ?'|upper }}</h2>
+                        <p class="sub-title">
+                            We are here to Acelerate your business and help you find the way. Our creative specialists work on an international level at branding, design and development. Both online and offline.
+                        </p>
+                    </div><!-- /.flat-title -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-info-box -->
+    <div class="divider50"></div>
+    <section class="flat-course parallax parallax13">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3 class="color-white">{{ 'Le Cabinet vous forme en'|upper }}</h3>
+                    </div><!-- /.flat-title style3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                {% for filiere in filieres %}
+                    <div class="col-md-4 pb-5">
+                        <div class="imagebox style4">
+                            <div class="imagebox-content center">
+                                <div class="name-course pb-10">
+                                    <h6><a href="{{ path('page_learning_group', {'slug': filiere.slug}) }}" title="{{ filiere.name }}">{{ filiere.name|upper }}</a></h6>
+                                </div>
+                                <div class="name-course pb-10">
+                                    <span>{{ filiere.content|raw|truncate(120, null, '...') }}</span>
+                                </div>
+                            </div><!-- /.imagebox-content -->
+                            <div class="imagebox-bottom">
+                                <p>&nbsp;</p>
+                                <div class="read-more center">
+                                    <a href="{{ path('page_learning_group', { 'slug': filiere.slug }) }}" title="{{ filiere.name }}">{{ 'Plus de détail'|upper }}</a>
+                                </div>
+                            </div><!-- /.imagebox-bottom -->
+                        </div><!-- /.imagebox style4 -->
+                    </div>
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-course -->
+    <div class="divider24"></div>
+    <section class="flat-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-services parallax parallax5 center color-white" style="background-position: 50% 83px;">
+                        <h3>{{ 'Vous voulez participer à nos seminaires de formation ?' }}</h3>
+                        <p class="font-size-16">{{ 'Cliquez sur le bouton ci-dessous pour nous appelez ou nous ecrire' }}.</p>
+                        <div class="btn-more">
+                            <a href="{{ path('page_contact') }}" class="border-radius-23 base line-white" title="">{{ 'Particpez à nos formations'|upper }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider10"></div>
+    <section class="flat-testimonial style3 v1 parallax parallax14">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3 class="color-white">{{ 'formations prochaines'|upper }}</h3>
+                    </div><!-- /.flat-title style3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="testimonial owl-carousel-3">
+                        {% for event in events %}
+                        <div class="testimonial-item style2 v1">
+                            <div class="wrap-event">
+                                <ul class="event-list">
+                                    <li class="event-item">
+                                        <div class="event-date float-left">
+                                            <div class="day">
+                                                {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "d") : '' }}
+                                            </div>
+                                            <div class="month">
+                                                {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "LLL") : '' }}
+                                            </div>
+                                        </div><!-- /.event-date -->
+                                        <div class="event-info overflow">
+                                            <h6>
+                                                <a href="{{ path('page_event_detail', {'slug': event.slug }) }}" title="{{ event.name }}">{{ event.name|capitalize }}</a>
+                                            </h6>
+                                            <ul class="address">
+                                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.filiere.name }}</li>
+                                                <li><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                    {{ event.times|localizeddate('none', 'none', 'fr_FR', null, "kk:mm zzzz") }}
+                                                </li>
+                                            </ul>
+                                            <p>{{ event.content|raw|truncate('100',null,'...') }}</p>
+                                        </div><!-- /.event-info -->
+                                        <div class="divider10"></div>
+                                        <div class="read-more">
+                                            <a href="{{ path('page_contact') }}" class="border-radius-23 base line-white" title="{{ event.name }}">{{ 'Particpez à nos formations'|upper }}</a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li><!-- /.event-item -->
+                                </ul><!-- /.event-list -->
+                            </div><!-- /.wrap-event -->
+                        </div>
+                        {% endfor %}
+                    </div><!-- /.testimonial owl-carousel-3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-testimonial -->
 {% endblock %}

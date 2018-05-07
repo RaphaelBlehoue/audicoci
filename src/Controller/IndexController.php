@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Event;
+use App\Entity\Filiere;
 use App\Entity\Formation;
 use App\Entity\Section;
 use App\Repository\CategoryRepository;
+use App\Repository\FiliereRepository;
 use App\Repository\PartnerRepository;
 use App\Repository\PostRepository;
 use App\Repository\EventRepository;
@@ -105,10 +107,28 @@ class IndexController extends Controller
 
     /**
      * @Route("/our_learning", name="page_learning", methods="GET", schemes={"%secure_channel%"})
+     * @param FiliereRepository $filiereRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function learningPage(){
-        return $this->render('pages/learning.html.twig');
+    public function learningPage(FiliereRepository $filiereRepository, EventRepository $eventRepository){
+        $filieres = $filiereRepository->findAll();
+        $events = $eventRepository->getValidEventLimited(3, new \DateTime('now'));
+        return $this->render('pages/learning.html.twig',[
+            'filieres' => $filieres,
+            'events'   => $events
+        ]);
+    }
+
+    /**
+     * @Route("/our_learning/page/{slug}", name="page_learning_group", methods="GET", schemes={"%secure_channel%"})
+     * @param Filiere $filiere
+     * @param FiliereRepository $filiereRepository
+     * @param $slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function learningPageGroups(Filiere $filiere, FiliereRepository $filiereRepository){
+        dump($filiere);
+        return $this->render('pages/learning_filiere.html.twig');
     }
 
     /**
@@ -118,6 +138,7 @@ class IndexController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function learningPageDetail(Formation $formation, FormationRepository $formationRepository){
+        dump($formation);
         return $this->render('pages/learning_detail.html.twig');
     }
 
