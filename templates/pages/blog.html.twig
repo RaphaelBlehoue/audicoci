@@ -40,8 +40,8 @@
                             <img src="{{ post.assertPath|imagine_filter('thumb_medium') }}" alt="{{ post.title }}">
                         </div><!-- /.imagebox-image -->
                         <div class="imagebox-content">
-                            <h6><a href="{{ path('page_blog_detail', {'slug': post.slug }) }}" title="{{ post.title }}">{{ post.title|truncate(20, null, '...') }}</a></h6>
-                            <p>{{ post.content|raw|truncate(120, null, '...') }}</p>
+                            <h6><a href="{{ path('page_blog_detail', {'slug': post.slug }) }}" title="{{ post.title }}">{{ post.title|truncate(100, null, '...') }}</a></h6>
+                            <p>{{ post.content|raw|truncate(250, null, '...') }}</p>
                             <div class="more-link">
                                 <a href="{{ path('page_blog_detail', {'slug': post.slug }) }}" title="{{ post.title }}">{{ 'Lire l\'article'|upper }}</a>
                             </div>

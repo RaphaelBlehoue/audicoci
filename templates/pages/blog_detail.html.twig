@@ -1,5 +1,120 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Actualités' }}{% endblock %}
 {% block body %}
-    <h1>detail Actualités page</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Actualités détail'|capitalize }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="{{ 'Accueil' }}">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="#" title="{{ 'Actualité détail' }}">{{ 'Actualité détail' }}</a></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <section id="main-blog" class="single style2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="wrap-post">
+                        <article class="blog-post single style1 v1">
+                            <div class="entry-post-title">
+                                <div class="top-post">
+                                    {{ post.subject.title|upper }}
+                                </div>
+                                <div class="post-title">
+                                    <h2>
+                                        <a href="{{ path('page_blog_detail', {'slug': post.slug}) }}" title="{{ post.title }}">{{ post.title|upper }}</a>
+                                    </h2>
+                                </div>
+                                <div class="post-date">
+                                    {{ post.created ? post.created|localizeddate('none', 'none', 'fr_FR', null, "d LLL yyyy") : '' }}
+                                </div>
+                            </div><!-- /.entry-post-title -->
+                            <div class="featured-post">
+                                <a href="{{ path('page_blog_detail', {'slug': post.slug}) }}" title="{{ post.title }}">
+                                    <img src="{{ post.assertPath|imagine_filter('thumb_blog') }}" alt="{{ post.title }}">
+                                </a>
+                            </div><!-- /.featured-post -->
+                            <div class="content-post">
+                                <p>{{ post.content|raw }}</p>
+                            </div><!-- /.content-post -->
+                        </article><!-- /.blog-post -->
+                    </div><!-- /.wrap-post -->
+                </div><!-- /.col-md-9 -->
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <div class="widget widget-news">
+                            <div class="widget-title">
+                                <h3>Autres News</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul>
+                                    {% for post in posts %}
+                                        <li>
+                                            <a href="{{ path('page_blog_detail', {'slug': post.slug}) }}" title="{{ post.title|upper }}">{{ post.title|upper }}</a>
+                                            <p class="date">
+                                                {{ post.created ? post.created|localizeddate('none', 'none', 'fr_FR', null, "d LLL yyyy") : '' }}
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div><!-- /.widget widget-news -->
+                        <div class="widget widget-categories">
+                            <div class="widget-title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul>
+                                   {% for subject in subjects %}
+                                    <li>
+                                        <a href="#" title="">{{ subject.title }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div><!-- /.widget widget-categories -->
+                    </div><!-- /.sidebar -->
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /#main-blog -->
+    <section class="flat-subscibe-email parallax parallax15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-subscribe center">
+                        <div class="title">
+                            <h3 class="color-white">{{ 'Abonnez par Email' }}</h3>
+                        </div>
+                        <p class="sub-title">
+                            {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
+                        </p>
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                            <div id="subscribe-content">
+                                <div class="input-email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                </div>
+                                <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                        </form>
+                    </div><!-- /.wrap-subscribe -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay-black"></div>
+    </section><!-- /.flat-subscribe-email -->
 {% endblock %}

@@ -73,5 +73,56 @@
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /.flat-course -->
+    <section class="flat-testimonial style3 v1 parallax parallax14">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title style3">
+                        <h3 class="color-white">{{ 'formations prochaines'|upper }}</h3>
+                    </div><!-- /.flat-title style3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="testimonial owl-carousel-3">
+                        {% for event in events %}
+                            <div class="testimonial-item style2 v1">
+                                <div class="wrap-event">
+                                    <ul class="event-list">
+                                        <li class="event-item">
+                                            <div class="event-date float-left">
+                                                <div class="day">
+                                                    {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "d") : '' }}
+                                                </div>
+                                                <div class="month">
+                                                    {{ event.dateAt ? event.dateAt|localizeddate('none', 'none', 'fr_FR', null, "LLL") : '' }}
+                                                </div>
+                                            </div><!-- /.event-date -->
+                                            <div class="event-info overflow">
+                                                <h6>
+                                                    <a href="{{ path('page_event_detail', {'slug': event.slug }) }}" title="{{ event.name }}">{{ event.name|capitalize }}</a>
+                                                </h6>
+                                                <ul class="address">
+                                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.filiere.name }}</li>
+                                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        {{ event.times|localizeddate('none', 'none', 'fr_FR', null, "kk:mm zzzz") }}
+                                                    </li>
+                                                </ul>
+                                                <p>{{ event.content|raw|truncate('100',null,'...') }}</p>
+                                            </div><!-- /.event-info -->
+                                            <div class="divider10"></div>
+                                            <div class="read-more">
+                                                <a href="{{ path('page_contact') }}" class="border-radius-23 base line-white" title="{{ event.name }}">{{ 'Particpez à nos formations'|upper }}</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li><!-- /.event-item -->
+                                    </ul><!-- /.event-list -->
+                                </div><!-- /.wrap-event -->
+                            </div>
+                        {% endfor %}
+                    </div><!-- /.testimonial owl-carousel-3 -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-testimonial -->
 {% endblock %}
-

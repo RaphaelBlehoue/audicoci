@@ -6,7 +6,9 @@ use App\Entity\Category;
 use App\Entity\Event;
 use App\Entity\Filiere;
 use App\Entity\Formation;
+use App\Entity\Post;
 use App\Entity\Section;
+use App\Entity\Subject;
 use App\Repository\CategoryRepository;
 use App\Repository\FiliereRepository;
 use App\Repository\PartnerRepository;
@@ -14,6 +16,8 @@ use App\Repository\PostRepository;
 use App\Repository\EventRepository;
 use App\Repository\FormationRepository;
 use App\Repository\SectionRepository;
+use App\Repository\SubjectRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -131,15 +135,18 @@ class IndexController extends Controller
      * @Route("/our_learning/page/{slug}", name="page_learning_group", methods="GET", schemes={"%secure_channel%"})
      * @param Filiere $filiere
      * @param FormationRepository $formationRepository
+     * @param EventRepository $eventRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function learningPageGroups(Filiere $filiere, FormationRepository $formationRepository){
+    public function learningPageGroups(Filiere $filiere, FormationRepository $formationRepository, EventRepository $eventRepository){
         $formations = $formationRepository->findBy([
             'filiere' => $filiere
         ]);
+        $events = $eventRepository->getValidEventLimited(3, new \DateTime('now'));
         return $this->render('pages/learning_filiere.html.twig',[
             'filiere' => $filiere,
-            'formations' => $formations
+            'formations' => $formations,
+            'events' => $events
         ]);
     }
 
@@ -147,11 +154,19 @@ class IndexController extends Controller
      * @Route("/learning/{slug}", name="page_learning_detail", methods="GET", schemes={"%secure_channel%"})
      * @param Formation $formation
      * @param FormationRepository $formationRepository
+     * @param FiliereRepository $filiereRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function learningPageDetail(Formation $formation, FormationRepository $formationRepository){
-        dump($formation);
-        return $this->render('pages/learning_detail.html.twig');
+    public function learningPageDetail(
+        Formation $formation,
+        FormationRepository $formationRepository,
+        FiliereRepository $filiereRepository
+    ){
+        $filieres = $filiereRepository->findAll();
+        return $this->render('pages/learning_detail.html.twig',[
+            'formation'=> $formation,
+            'filieres'  => $filieres
+        ]);
     }
 
     /**
@@ -178,10 +193,19 @@ class IndexController extends Controller
 
     /**
      * @Route("/blog/{slug}", name="page_blog_detail", methods="GET", schemes={"%secure_channel%"})
+     * @param Post $post
+     * @param PostRepository $postRepository
+     * @param SubjectRepository $subjectRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function BlogPageDetail(){
-        return $this->render('pages/blog_detail.html.twig');
+    public function BlogPageDetail(Post $post, PostRepository $postRepository, SubjectRepository $subjectRepository){
+        $subjects = $subjectRepository->findAll();
+        $posts = $postRepository->findAll();
+        return $this->render('pages/blog_detail.html.twig',[
+            'post' => $post,
+            'posts' => $posts,
+            'subjects' => $subjects
+        ]);
     }
 
     /**

@@ -1,7 +1,119 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Nos formations' }}{% endblock %}
 {% block body %}
-    <h1>Page detail formations</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ formation.filiere.name|upper }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_learning') }}" title="{{ 'Formation' }}">{{ 'Formation' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_learning_group', {'slug': formation.filiere.slug}) }}" title="{{ formation.filiere.name }}">{{ formation.filiere.name }}</a></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <div class="divider30"></div>
+    <section class="flat-jobs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <div class="jobs">
+                            <h4>{{ 'Filières de formation' }}</h4>
+                            <div class="content-job">
+                                <ul>
+                                    {% for filiere in filieres %}
+                                    <li>
+                                        <a href="{{ path('page_learning_group', {'slug': filiere.slug }) }}" title="{{ filiere.name }}">{{ filiere.name|capitalize }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div><!-- /.content-job -->
+                        </div><!-- /.jobs -->
+                    </div><!-- /.sidebar -->
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-8">
+                    <div class="main-jobs">
+                        <div class="header-jobs">
+                            <div class="jobs-title">
+                                <h2>{{ formation.title|capitalize }}</h2>
+                                <ul>
+                                    <li>
+                                        <span>Sections de la filière</span>
+                                        <span>{{ formation.filiere.name }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- /.header-jobs -->
+                        <div class="content-jobs">
+                            <div class="box-jobs">
+                                <h5>Sommaire</h5>
+                                <p>{{ formation.smallContent|raw }}</p>
+                            </div><!-- /.box-jobs -->
+                            <div class="box-jobs">
+                                <h5>Description</h5>
+                                <p>{{ formation.content|raw }}</p>
+                            </div><!-- /.box-jobs -->
+                        </div><!-- /.content-jobs -->
+                    </div><!-- /.main-jobs -->
+                </div><!-- /.col-md-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-jobs -->
+    <div class="divider24"></div>
+    <section class="flat-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-services parallax parallax5 center color-white" style="background-position: 50% 83px;">
+                        <h3>{{ 'Vous voulez participer à nos seminaires de formation ?' }}</h3>
+                        <p class="font-size-16">{{ 'Cliquez sur le bouton ci-dessous pour nous appelez ou nous ecrire' }}.</p>
+                        <div class="btn-more">
+                            <a href="{{ path('page_contact') }}" class="border-radius-23 base line-white" title="">{{ 'Particpez à nos formations'|upper }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="flat-subscibe-email parallax parallax15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap-subscribe center">
+                        <div class="title">
+                            <h3 class="color-white">{{ 'Abonnez par Email' }}</h3>
+                        </div>
+                        <p class="sub-title">
+                            {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
+                        </p>
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                            <div id="subscribe-content">
+                                <div class="input-email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                </div>
+                                <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
+                            </div>
+                            <div id="subscribe-msg"></div>
+                        </form>
+                    </div><!-- /.wrap-subscribe -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="overlay-black"></div>
+    </section><!-- /.flat-subscribe-email -->
 {% endblock %}
 
 
