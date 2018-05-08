@@ -40,6 +40,7 @@ class UsersController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setRoles(['ROLE_ADMIN']);
             $em->persist($user);
             $em->flush();
 

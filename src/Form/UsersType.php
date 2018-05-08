@@ -34,12 +34,6 @@ class UsersType extends AbstractType
                 'first_options'  => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Verifier le mot de passe'),
             ))
-            ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'Editeur' => 'ROLE_MEMBER',
-                    'Administrateur' => 'ROLE_ADMIN'
-                ]
-            ])
         ;
     }
 
