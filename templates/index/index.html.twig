@@ -339,10 +339,10 @@
                         <p class="sub-title">
                             {{ 'Abonnez-vous maintenant et recevez une newsletter hebdomadaire avec du matériel éducatif, de nouveaux cours, des articles intéressants, des livres populaires et bien plus encore!' }}
                         </p>
-                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                        <form id="subscribe-form" action="#" method="post" accept-charset="utf-8" data-mailsmtp="true" data-mailsmtpUrl="{{ path('subscriber') }}">
                             <div id="subscribe-content">
                                 <div class="input-email">
-                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Enter your email">
+                                    <input type="text" name="email-form" id="subscribe-email" placeholder="Entrez votre adresse mail">
                                 </div>
                                 <button type="button" id="subscribe-button" class="button-subscribe">{{ 's\'abonner'|upper }}</button>
                             </div>

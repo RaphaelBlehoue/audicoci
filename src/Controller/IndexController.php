@@ -8,7 +8,7 @@ use App\Entity\Filiere;
 use App\Entity\Formation;
 use App\Entity\Post;
 use App\Entity\Section;
-use App\Entity\Subject;
+use App\Form\ContactType;
 use App\Repository\CategoryRepository;
 use App\Repository\FiliereRepository;
 use App\Repository\PartnerRepository;
@@ -17,11 +17,13 @@ use App\Repository\EventRepository;
 use App\Repository\FormationRepository;
 use App\Repository\SectionRepository;
 use App\Repository\SubjectRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class IndexController extends Controller
+class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="index_page", methods="GET", schemes={"%secure_channel%"})
@@ -97,7 +99,6 @@ class IndexController extends Controller
      */
     public function ServicePageGroups(Category $category, SectionRepository $sectionRepository){
         $sections = $sectionRepository->findByCategoryFieldId($category);
-        dump($sections);
         return $this->render('pages/services_category.html.twig',[
             'sections' => $sections,
             'category' => $category
@@ -209,10 +210,64 @@ class IndexController extends Controller
     }
 
     /**
-     * @Route("/our_contact/", name="page_contact", methods="GET", schemes={"%secure_channel%"})
+     * @Route("/our_contact/", name="page_contact", methods="GET|POST", schemes={"%secure_channel%"})
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     * @param FlashBagInterface $flashBag
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function ContactPage(){
-        return $this->render('pages/contact.html.twig');
+    public function ContactPage(Request $request, \Swift_Mailer $mailer, FlashBagInterface $flashBag){
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $contactFormData = $form->getData();
+            $message = (new \Swift_Message($contactFormData['subject']))
+                ->setFrom($contactFormData['email'])
+                ->setTo('info@audicoci.com')
+                ->setBody(
+                    $this->renderView(
+                        'email/contact.html.twig',
+                        [
+                            'message' => $contactFormData['content'],
+                            'name'    => $contactFormData['name']
+                        ]
+                    ),
+                    'text/html'
+            );
+            $mailer->send($message);
+            if (false === $flashBag->has('success')){
+                $this->addFlash('success', 'It sent!');
+            }
+            return $this->redirectToRoute('page_contact');
+        }
+        return $this->render('pages/contact.html.twig',[
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/subscriber", name="subscriber")
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     * @return Response
+     */
+    public function subscriber(Request $request, \Swift_Mailer $mailer){
+        $value = $request->request->get('emailform');
+        if ($request->isXmlHttpRequest()) {
+            $message = (new \Swift_Message('Subscription newsletter'))
+                ->setFrom($value)
+                ->setTo('info@audicoci.com')
+                ->setBody(
+                    $this->renderView(
+                        'email/subcriber.html.twig',
+                        [
+                            'email' => $value
+                        ]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
+            return new Response(null, 200, ['Content-Type' => 'application/json']);
+        }
     }
 }

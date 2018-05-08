@@ -1821,7 +1821,7 @@
 	.reviews .review-respond .review-form-box .review-form-name,
 	.reviews .review-respond .review-form-box .review-form-email,
 	.flat-comming-soon,
-	.wrap-subscribe #subscribe-form {
+	.wrap-subscribe #subscribe-form #subscribe-smtp-form {
 		padding: 0;
 	}
 

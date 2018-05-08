@@ -1078,7 +1078,7 @@
                 styledmaptype:{
                     id: "themesflat_style",
                     options:{
-                        name: "Yolo Map"
+                        name: "AUDICOCI MAP"
                     },
                     styles:[
                         {
@@ -1354,31 +1354,29 @@
             }); // Portfolio Isotope
         };
     }; // Grid Photography
-
+    var formSubcriber = $('#subscribe-form');
     var ajaxSubscribe = {
         obj: {
             subscribeEmail    : $('#subscribe-email'),
             subscribeButton   : $('#subscribe-button'),
             subscribeMsg      : $('#subscribe-msg'),
             subscribeContent  : $("#subscribe-content"),
-            dataMailchimp     : $('#subscribe-form').attr('data-mailchimp'),
+            dataMailsmtp      : formSubcriber.attr('data-mailsmtp'),
             success_message   : '<div class="notification_ok">Thank you for joining our mailing list! Please check your email for a confirmation link.</div>',
             failure_message   : '<div class="notification_error">Error! <strong>There was a problem processing your submission.</strong></div>',
             noticeError       : '<div class="notification_error">{msg}</div>',
             noticeInfo        : '<div class="notification_error">{msg}</div>',
             basicAction       : 'mail/subscribe.php',
-            mailChimpAction   : 'mail/subscribe-mailchimp.php'
+            mailSmtpAction    : formSubcriber.attr('data-mailsmtpUrl')
         },
 
         eventLoad: function() {
             var objUse = ajaxSubscribe.obj;
-
             $(objUse.subscribeButton).on('click', function() {
                 if ( window.ajaxCalling ) return;
-                var isMailchimp = objUse.dataMailchimp === 'true';
-
-                if ( isMailchimp ) {
-                    ajaxSubscribe.ajaxCall(objUse.mailChimpAction);
+                var isMailsmtp  = objUse.dataMailsmtp === 'true';
+                if ( isMailsmtp ) {
+                    ajaxSubscribe.ajaxCall(objUse.mailSmtpAction);
                 } else {
                     ajaxSubscribe.ajaxCall(objUse.basicAction);
                 }

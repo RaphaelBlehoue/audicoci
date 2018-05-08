@@ -1,6 +1,141 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'Audicoci | Nous contactez' }}{% endblock %}
 {% block body %}
-    <h1>Page Contact</h1>
+    <section class="page-title parallax parallax2">
+        <div class="title-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-title style1">
+                            <h1>
+                                {{ 'Nous contactez' }}
+                            </h1>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="{{ path('index_page') }}" title="">{{ 'Accueil' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                    <li><a href="{{ path('page_contact') }}" title="{{ 'Nous contactez' }}">{{ 'Nous contactez' }}</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                                </ul>
+                            </div><!-- /.breadcrumbs -->
+                        </div><!-- /.box-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.title-heading -->
+        <div class="overlay-black"></div>
+    </section><!-- /.page-title parallax -->
+    <section class="flat-iconbox style6">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="iconbox style2 center">
+                        <div class="box-header">
+                            <div class="icon">
+                                <i class="fa fa-phone color-default font-size-24" aria-hidden="true"></i>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p class="color-black font-weight-3">+225 22 43 57 38</p>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox style2 -->
+                </div><!-- /.col-sm-6 col-lg-3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="iconbox style2 center">
+                        <div class="box-header">
+                            <div class="icon">
+                                <i class="fa fa-envelope color-default font-size-24" aria-hidden="true"></i>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p class="color-black font-weight-3">info@audicoci.com</p>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox style2 -->
+                </div><!-- /.col-sm-6 col-lg-3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="iconbox style2 center">
+                        <div class="box-header">
+                            <div class="icon">
+                                <i class="fa fa-globe color-default font-size-24" aria-hidden="true"></i>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p class="color-black font-weight-3">Abidjan cocody Rivera II, Côte d'ivoire</p>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox style2 -->
+                </div><!-- /.col-sm-6 col-lg-3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="iconbox style2 center">
+                        <div class="box-header">
+                            <div class="icon">
+                                <i class="fa fa-clock-o color-default font-size-24" aria-hidden="true"></i>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-content">
+                            <p class="color-black font-weight-3">Heures d'ouverture: 8.00-18.00 Lun-Ven</p>
+                        </div><!-- /.box-content -->
+                    </div><!-- /.iconbox style2 -->
+                </div><!-- /.col-sm-6 col-lg-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-iconbox style6 -->
+    <section class="flat-map">
+        <section class="pdmap" id="flat-map">
+            <div class="flat-maps-2" data-address="Abidjan cocody Rivera II, Côte d'ivoire" data-height="460" data-image="{{ asset('build/global/images/icons/map.png') }}" data-name="Themesflat Map"></div>
+            <div class="gm-map">
+                <div class="map-2 box-shadow"></div>
+            </div>
+        </section><!-- /#flat-map -->
+    </section><!-- /.flat-map -->
+    <section class="flat-row flat-contact-form style5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flat-title">
+                        <h2 class="font-weight-3">{{ 'Prenez contact avec nous'|capitalize }}</h2>
+                    </div>
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="form-contact-form style3 v2 two">
+                    {{ include('flash_messages.html.twig') }}
+                    {{ form_start(form, {'attr': {'accept-charset': 'utf-8', novalidate: 'novalidate'} } ) }}
+                        <div id="subscribe-content">
+                            <div class="one-half">
+                                <div class="contact-form-name contact-form">
+                                    {{ form_widget(form.subject) }}
+                                    {{ form_errors(form.subject) }}
+                                </div>
+                                <div class="contact-form-name contact-form">
+                                    {{ form_widget(form.name) }}
+                                    {{ form_errors(form.name) }}
+                                </div>
+                                <div class="contact-form-email contact-form">
+                                    {{ form_widget(form.email) }}
+                                    {{ form_errors(form.email) }}
+                                </div>
+                                <div class="contact-form-url contact-form">
+                                    {{ form_widget(form.website) }}
+                                    {{ form_errors(form.website) }}
+                                </div>
+                            </div>
+                            <div class="one-half">
+                                <div class="contact-form-comment contact-form">
+                                    {{ form_widget(form.content) }}
+                                    {{ form_errors(form.content) }}
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="btn-contact-form center">
+                                {{ form_widget(form.save) }}
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div><!-- /.form-contact-form -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.flat-contact-form -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOKHatCs1uB4ajM4zJR0yLROmV_GoY8CI&region=CI"></script>
+    <script type="text/javascript" src="{{ asset('build/global/javascript/gmap3.min.js') }}"></script>
 {% endblock %}
 
