@@ -1553,7 +1553,7 @@ article.minimals-creative-post.style1 .entry-post .entry-content .share-link {
 .flat-old-year ul.list-year li {
 	padding-left: 68px;
 	position: relative;
-	padding-bottom: 37px;
+	padding-bottom: 5px;
 }
 
 .flat-old-year ul.list-year li:last-child {
@@ -2765,7 +2765,7 @@ article.box-price.style1.v1 .content-price .btn-price a {
 }
 
 .is-outer {
-    stroke-width: 2;
+    stroke-width: 2%;
     stroke-dasharray: 227;
     stroke-dashoffset: 227;
     transform-origin: 50%;
@@ -4046,7 +4046,7 @@ article.box-price.style1.v1 .content-price .btn-price a {
 .call-action.style1 .text-action h4 {
 	font-size: 30px;
 	line-height: 48px;
-	letter-spacing: 
+	/*letter-spacing: */
 }
 
 .call-action.style1 .btn-quote {
@@ -5537,7 +5537,7 @@ ul.list-styles.style1 li a.active i {
 .basicBox svg rect {
   fill: none;
   stroke: #1e1e27;
-  stroke-width: 4;
+  stroke-width: 4%;
 }
 
 .basicBox:hover svg rect {
