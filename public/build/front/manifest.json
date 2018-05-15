@@ -1,10 +1,12 @@
 {
-  "build/front/css/app.css": "/build/front/css/app.css",
-  "build/front/css/main.css": "/build/front/css/main.css",
+  "build/front/css/app.css": "/build/front/css/app.b8d7aad3876b0a9c00e6afd3854663bf.css",
+  "build/front/css/app.css.map": "/build/front/css/app.b8d7aad3876b0a9c00e6afd3854663bf.css.map",
+  "build/front/css/main.css": "/build/front/css/main.da89d6a41e122fbb6f91ea7bc07e58b2.css",
+  "build/front/css/main.css.map": "/build/front/css/main.da89d6a41e122fbb6f91ea7bc07e58b2.css.map",
   "build/front/fonts/ElegantIcons.eot": "/build/front/fonts/ElegantIcons.d72ad3f7.eot",
   "build/front/fonts/ElegantIcons.ttf": "/build/front/fonts/ElegantIcons.f9d179f5.ttf",
   "build/front/fonts/ElegantIcons.woff": "/build/front/fonts/ElegantIcons.fdd9e757.woff",
-  "build/front/fonts/fontawesome-webfont.eot?v=4.7.0": "/build/front/fonts/fontawesome-webfont.674f50d2.eot",
+  "build/front/fonts/fontawesome-webfont.eot": "/build/front/fonts/fontawesome-webfont.674f50d2.eot",
   "build/front/fonts/fontawesome-webfont.ttf?v=4.7.0": "/build/front/fonts/fontawesome-webfont.b06871f2.ttf",
   "build/front/fonts/fontawesome-webfont.woff2?v=4.7.0": "/build/front/fonts/fontawesome-webfont.af7ae505.woff2",
   "build/front/fonts/fontawesome-webfont.woff?v=4.7.0": "/build/front/fonts/fontawesome-webfont.fee66e71.woff",
@@ -18,5 +20,6 @@
   "build/front/images/fancybox_sprite.png": "/build/front/images/fancybox_sprite.783d4031.png",
   "build/front/images/fontawesome-webfont.svg?v=4.7.0": "/build/front/images/fontawesome-webfont.912ec66d.svg",
   "build/front/images/themify.svg?-fvbane": "/build/front/images/themify.9c8e96ec.svg",
-  "build/front/js/app.js": "/build/front/js/app.js"
+  "build/front/js/app.js": "/build/front/js/app.6784549827ef7dbc4b2c.js",
+  "build/front/js/app.js.map": "/build/front/js/app.6784549827ef7dbc4b2c.js.map"
 }

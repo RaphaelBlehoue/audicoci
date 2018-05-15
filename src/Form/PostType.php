@@ -34,7 +34,7 @@ class PostType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu  de l\'actualité',
-                'attr'  => ['placeholder' => 'Entrez le contenu ici', 'class' => 'ckeditor']
+                'attr'  => ['placeholder' => 'Entrez le contenu ici', 'class' => 'editor']
             ])
         ;
     }

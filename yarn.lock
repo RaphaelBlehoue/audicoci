@@ -2,6 +2,139 @@
 # yarn lockfile v1
 
 
+"@ckeditor/ckeditor5-alignment@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-alignment/-/ckeditor5-alignment-10.0.0.tgz#1ed5a2f7408a9149bd269b860a8004eacc24fd3b"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+
+"@ckeditor/ckeditor5-basic-styles@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-basic-styles/-/ckeditor5-basic-styles-10.0.0.tgz#8f330bddd7715dc7d7772e74712c4775dc713cf0"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-theme-lark" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+
+"@ckeditor/ckeditor5-build-classic@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-10.0.0.tgz#c01a89bcba2ec9cea114f6cbd480d3ccb77f51cf"
+
+"@ckeditor/ckeditor5-clipboard@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-clipboard/-/ckeditor5-clipboard-10.0.0.tgz#e825f666d99146649138b2a6aa77237bd9f97c35"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+
+"@ckeditor/ckeditor5-core@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-10.0.0.tgz#963b65d6b100e8fa2b4b8bc016aece18f59cad11"
+  dependencies:
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-editor-classic@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-editor-classic/-/ckeditor5-editor-classic-10.0.0.tgz#d335ff995bf1a334550a8fc7031d868fe13366f7"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-theme-lark" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-engine@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-10.0.0.tgz#bb1915d675cd9d36561d8502dfa1b4004810a457"
+  dependencies:
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-enter@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-enter/-/ckeditor5-enter-10.0.0.tgz#5806e21ff09012a22b8b02a4b091354e4418c1e1"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-essentials@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-essentials/-/ckeditor5-essentials-10.0.0.tgz#b754cd2c297fbd9131f7cd3f74e2478f6f196b7e"
+  dependencies:
+    "@ckeditor/ckeditor5-clipboard" "^10.0.0"
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-enter" "^10.0.0"
+    "@ckeditor/ckeditor5-typing" "^10.0.0"
+    "@ckeditor/ckeditor5-undo" "^10.0.0"
+
+"@ckeditor/ckeditor5-heading@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-heading/-/ckeditor5-heading-10.0.0.tgz#c33ddedd8b480b6dafc6da98769ae7ec6d6e4b14"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-paragraph" "^10.0.0"
+    "@ckeditor/ckeditor5-theme-lark" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-list@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-list/-/ckeditor5-list-10.0.0.tgz#0843fc5915cdd6cf2282a5f00d87a8192848d500"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-paragraph" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-paragraph@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-paragraph/-/ckeditor5-paragraph-10.0.0.tgz#679de2f8ba427f1d6307bb704653a5f6b9b0e4ab"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-theme-lark@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-theme-lark/-/ckeditor5-theme-lark-10.0.0.tgz#3bcbd1dbd6124750ee921738285f19b9af0b4787"
+  dependencies:
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+
+"@ckeditor/ckeditor5-typing@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-typing/-/ckeditor5-typing-10.0.0.tgz#062be02a9a6a2c5c660b11c71b6e5683561da422"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-ui@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-ui/-/ckeditor5-ui-10.0.0.tgz#1c0ec8c55b767941f14972ac9690aa467152281a"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-theme-lark" "^10.0.0"
+    "@ckeditor/ckeditor5-utils" "^10.0.0"
+
+"@ckeditor/ckeditor5-undo@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-undo/-/ckeditor5-undo-10.0.0.tgz#954fe36b382c4e33988517c0a5a65d6cfa313fa8"
+  dependencies:
+    "@ckeditor/ckeditor5-core" "^10.0.0"
+    "@ckeditor/ckeditor5-engine" "^10.0.0"
+    "@ckeditor/ckeditor5-ui" "^10.0.0"
+
+"@ckeditor/ckeditor5-utils@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-utils/-/ckeditor5-utils-10.0.0.tgz#d0e61a93dd2a16e84f59dd8f7d145fc5d60d88f6"
+
 "@symfony/webpack-encore@^0.17.0":
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.17.1.tgz#4889d92bd241eff48ff4b72e76fa367b4c085c9e"
