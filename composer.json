@@ -1,5 +1,5 @@
 {
-    "type": "project",
+    "type": "audicoci-website",
     "license": "proprietary",
     "require": {
         "php": "^7.1.3",
@@ -78,7 +78,7 @@
     },
     "extra": {
         "symfony": {
-            "id": "01CB509GCT7T5CC5G207QCAH3T",
+            "id": "01CB509GCT9T5CC5G207QCAH3T",
             "allow-contrib": true
         }
     }
